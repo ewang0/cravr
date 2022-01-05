@@ -1,0 +1,19 @@
+.form-section {
+    background-color: darkgray;
+    width: 50%;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+}
+
+.questions input {
+    margin: 10px;
+    width: 100px;
+}
+
+.questions button {
+    width: 100px;
+    margin: 10px;
+}
