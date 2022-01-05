@@ -3,7 +3,9 @@ import Card from "./Card";
 
 const ImageGrid = () => {
   return(
-    <section>
+    <section className="image-grid-section">
+      <Card />
+      <Card />
       <Card />
     </section>
   )
