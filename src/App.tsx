@@ -3,13 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import ImageGrid from './components/ImageGrid';
+import Nav from './components/Nav'
 
 const App = () => {
   return (
     <main className="App">
-      <h1>Cravr</h1>
-      <Form />
-      <ImageGrid />
+      <Nav />
+      <section className="main-container">
+        <Form />
+        <ImageGrid />
+      </section>
     </main>
   );
 }
