@@ -1,9 +1,9 @@
 import React from "react";
+import './Card.css';
 
 const Card = () => {
   return(
-    <div>
-      img
+    <div className="card">
     </div>
   )
 }
