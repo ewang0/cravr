@@ -2,7 +2,7 @@ import React from "react";
 import './Nav.css';
 import { NavLink } from 'react-router-dom'
 
-const Nav = () => {
+const Nav: React.FC = () => {
     return (
         <nav>
             <h1>Cravr</h1>

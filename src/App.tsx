@@ -5,7 +5,7 @@ import Form from './components/Form';
 import ImageGrid from './components/ImageGrid';
 import Nav from './components/Nav'
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <main className="App">
       <Nav />

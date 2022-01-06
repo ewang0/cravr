@@ -1,7 +1,7 @@
 import React from "react";
 import './Form.css'
 
-const Form = () => {
+const Form: React.FC = () => {
   return (
     <section className="form-section">
       <form className="questions">
