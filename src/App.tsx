@@ -3,10 +3,12 @@ import './App.css';
 import Form from './components/Form';
 import ImageGrid from './components/ImageGrid';
 import Nav from './components/Nav'
+import sampleData from './sampleData';
 
 const App: React.FC = () => {
 
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState(sampleData)
+
   
   // useEffect(() => {
   //   const fetchData = async() => {
@@ -21,14 +23,11 @@ const App: React.FC = () => {
 
   
   return (
-    //when we access data, we need recipes.results
-    //this gives us an array of objects 
-    //{ id: numbers, image, imageType, title :rest are strings}
     <main className="App">
       <Nav />
       <section className="main-container">
         <Form />
-        <ImageGrid />
+        <ImageGrid recipes={recipes} />
       </section>
     </main>
   );
