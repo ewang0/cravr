@@ -21,9 +21,7 @@ const ImageGrid: React.FC<SampleDataProps> = ({recipes}) => {
   })
   return(
     <section className="image-grid-section">
-      <Card />
-      <Card />
-      <Card />
+      {eachRecipe}
     </section>
   )
 }
