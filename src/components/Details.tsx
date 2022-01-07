@@ -1,7 +1,13 @@
 import React from "react";
 
-const Details = () => {
-  
+const Details: React.FC = () => {
+
+  return (
+    <div>
+      
+    </div>
+  )
+
 }
 
 export default Details;

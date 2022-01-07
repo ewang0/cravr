@@ -1,0 +1,14 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+}
+
+nav h1 {
+    margin: 20px;
+}
+
+.nav-items {
+    margin: 20px;
+}

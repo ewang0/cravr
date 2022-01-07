@@ -1,9 +1,9 @@
 import React from "react";
+import './Card.css';
 
-const Card = () => {
+const Card: React.FC = () => {
   return(
-    <div>
-      img
+    <div className="card">
     </div>
   )
 }
