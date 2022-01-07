@@ -17,3 +17,8 @@
     width: 100px;
     margin: 10px;
 }
+
+.option-select {
+    width: 10vw;
+    height: 2vh;
+}
