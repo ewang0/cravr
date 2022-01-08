@@ -13,7 +13,7 @@ const App: React.FC = () => {
   //   const fetchData = async() => {
   //     const res = await fetch('https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian')
   //     const resJson = await res.json()
-  //     setRecipes(resJson)
+  //     setRecipes(resJson.results)
   //   }
   //   fetchData()
   // }, [setRecipes])
