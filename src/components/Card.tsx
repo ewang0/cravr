@@ -7,8 +7,6 @@ const Card: React.FC<Recipe> =(recipe) => {
     <div className="card">
       <p>{recipe.image}</p>
       <p>{recipe.title}</p>
-      <p></p>
-
     </div>
   )
 }

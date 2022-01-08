@@ -8,7 +8,6 @@ import sampleData from './sampleData';
 const App: React.FC = () => {
 
   const [recipes, setRecipes] = useState(sampleData)
-
   
   // useEffect(() => {
   //   const fetchData = async() => {
@@ -19,9 +18,6 @@ const App: React.FC = () => {
   //   fetchData()
   // }, [setRecipes])
 
-  // console.log('recipes', recipes )
-
-  
   return (
     <main className="App">
       <Nav />

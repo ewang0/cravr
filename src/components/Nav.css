@@ -1,14 +1,28 @@
 nav {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
     align-items: center;
-    background-color: lightgray;
+    background-color: #416724;
+    
 }
 
 nav h1 {
+    font-family: 'Source Serif Pro', serif;
+    font-weight: bold;
+    font-size: 40px;
     margin: 20px;
+    color: white;
+    letter-spacing: 0.03em;
 }
 
 .nav-items {
+    font-family: 'Source Sans Pro', sans-serif;
     margin: 20px;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: white;
+    margin: 15px;
 }

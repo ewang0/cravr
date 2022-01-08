@@ -1,9 +1,10 @@
 .form-section {
-    background-color: darkgray;
+    
     width: 50%;
 }
 
 .questions {
+    background-color: darkgray;
     display: flex;
     flex-direction: column;
 }
@@ -16,6 +17,27 @@
 .questions button {
     width: 100px;
     margin: 10px;
+}
+
+.questionnaire-info {
+    display: flex;
+    max-width: 350px;
+    margin: 25px;
+}
+
+.questionnaire-info-text h2 {
+    font-family: 'Source Serif Pro', serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.questionnaire-info-text p {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.bulb-icon {
+    height: 78px;
 }
 
 .option-select {
