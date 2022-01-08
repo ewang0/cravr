@@ -1,8 +1,25 @@
 import React from "react";
 import Card from "./Card";
 import "./ImageGrid.css"
+import { SampleDataProps } from './Types'
 
-const ImageGrid = () => {
+
+
+
+const ImageGrid: React.FC<SampleDataProps> = ({recipes}) => {
+  const eachRecipe = recipes.map(recipe=> {
+    console.log(recipe.id)
+    return (
+      <Card 
+        key={recipe.id}
+        id={recipe.id}
+        title={recipe.title}
+        image={recipe.image}
+
+        />
+
+    )
+  })
   return(
     <section className="image-grid-section">
       <aside className="questionnaire-info">
@@ -13,11 +30,8 @@ const ImageGrid = () => {
         </div>
       </aside>
     <div className="card-container">
-      <Card />
-      <Card />
-      <Card />
+      {eachRecipe}
     </div>
-
     </section>
   )
 }

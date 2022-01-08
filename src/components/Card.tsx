@@ -1,7 +1,8 @@
 import React from "react";
 import './Card.css';
+import { Recipe } from './Types'
 
-const Card = () => {
+const Card: React.FC<Recipe> =(recipe) => {
   return(
     <div className="card">
       <img src={recipe.image}></img>

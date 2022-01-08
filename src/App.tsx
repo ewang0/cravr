@@ -1,13 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/Form';
 import ImageGrid from './components/ImageGrid';
 import Nav from './components/Nav'
+import sampleData from './sampleData';
 
 const App: React.FC = () => {
 
-  // const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState(sampleData)
   
   // useEffect(() => {
   //   const fetchData = async() => {
@@ -18,14 +18,12 @@ const App: React.FC = () => {
   //   fetchData()
   // }, [setRecipes])
 
-  console.log('recipes', recipes )
-
   return (
     <main className="App">
       <Nav />
       <section className="main-container">
         <Form />
-        <ImageGrid />
+        <ImageGrid recipes={recipes} />
       </section>
     </main>
   );
