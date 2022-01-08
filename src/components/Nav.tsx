@@ -12,6 +12,7 @@ const Nav: React.FC = () => {
             <h1>Cravr</h1>
             <div className="nav-items right">
                 <NavLink to="/">Favorites</NavLink>
+                <NavLink to="/">Something</NavLink>
             </div>
         </nav>
     )

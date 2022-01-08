@@ -5,7 +5,7 @@ import { Recipe } from './Types'
 const Card: React.FC<Recipe> =(recipe) => {
   return(
     <div className="card">
-      <p>{recipe.image}</p>
+      <img src={recipe.image}></img>
       <p>{recipe.title}</p>
     </div>
   )
