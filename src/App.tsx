@@ -20,10 +20,10 @@ const App: React.FC = () => {
   //   fetchData();
   // }, [endPoint]);
 
-  const submitSearch = (event: any, type?: string) => {
+  const submitSearch = (event: any, type?: string, cuisineTypes?: string[], dietRestrictions?: string[], intolerances?: string[]) => {
     event.preventDefault();
     console.log('hello')
-    setEndPoint(`https://api.spoonacular.com/recipes/complexSearch?type=${type}&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`);
+    setEndPoint(`https://api.spoonacular.com/recipes/complexSearch?${cuisineTypes ? `type=${cuisineTypes.join(",")}` : ''}&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`);
   }
 
   return (
