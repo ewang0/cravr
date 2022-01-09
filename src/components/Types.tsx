@@ -11,5 +11,5 @@ export interface SampleDataProps {
 }
 
 export interface SubmitSearchProps {
-  submitSearch: (event: any, stringArr?: string[]) => void
+  submitSearch: (event: any, type?: string) => void
 }
