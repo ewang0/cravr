@@ -339,7 +339,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button onClick={event => submitSearch(event, meal)}>Submit</button>
+            <button onClick={event => submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances)}>Submit</button>
             <button>Random</button>
           </div>
         </div>
