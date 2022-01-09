@@ -7,7 +7,7 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
 }
-.card img {
+.food-img {
     height: 242.25px;
     width: 323px;
     background-color: gray;
@@ -15,4 +15,29 @@
     border-radius: 30px;
     background-color: #d9d9d9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card a {
+    display: flex;
+}
+
+.card a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.card-text {
+    margin-left: 10px;
+}
+
+
+.see-details {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+.see-details img {
+    margin-left: 10px;
+    margin-top: 2px;
 }
