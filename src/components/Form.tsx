@@ -47,7 +47,12 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
                 <option value="--Meal--">--Meal--</option>
                 <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
+                <option value="main course">Main Course</option>
+                <option value="side dish">Side Dish</option>
+                <option value="dessert">Dessert</option>
+                <option value="appetizer">Appetizer</option>
+                <option value="fingerfood">Fingerfood</option>
+                <option value="snack">snack</option>
               </select>
             </div>
           </li>
@@ -59,7 +64,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>What kind of flavors are you in the mood for?</p>
               <div className="slider-container">
                 <div className="slider-wrapper">
-                  <input className="sweet"type="range"/>
+                  <input className="sweet" type="range" min="0" max="20"/>
                   <p>Sweet</p>
                 </div>
                 <div className="slider-wrapper savory">
