@@ -9,3 +9,7 @@ export interface Recipe {
 export interface SampleDataProps {
     recipes: Array<Recipe>
 }
+
+export interface SubmitSearchProps {
+  submitSearch: (event: any, stringArr?: string[]) => void
+}

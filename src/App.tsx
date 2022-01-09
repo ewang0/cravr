@@ -17,16 +17,19 @@ const App: React.FC = () => {
   //   }
   //   fetchData()
   // }, [setRecipes])
+  const submitSearch = (event: any, stringArr?: string[]) => {
+    event.preventDefault();
+    console.log('hello')
+  }
 
   return (
     <main className="App">
       <Nav />
       <section className="main-container">
-        <Form />
+        <Form submitSearch={submitSearch}/>
         <ImageGrid recipes={recipes} />
       </section>
     </main>
   );
 }
-
 export default App;

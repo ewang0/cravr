@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Form.css"
+import { SubmitSearchProps } from "./Types";
 
-const Form: React.FC = () => {
+
+
+const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
   const [meal, setMeal] = useState('');
   const [isChecked, setCheckedState] = useState<string[]>([]);
@@ -318,7 +321,7 @@ const Form: React.FC = () => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button>Submit</button>
+            <button onClick={event => submitSearch(event)}>Submit</button>
             <button>Random</button>
           </div>
         </div>
