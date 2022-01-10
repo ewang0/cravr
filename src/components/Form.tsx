@@ -1,13 +1,29 @@
 import React, { useState } from "react";
 import "./Form.css"
+import { SubmitSearchProps } from "./Types";
 
-const Form: React.FC = () => {
+
+
+const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
   const [meal, setMeal] = useState('');
-  const [isChecked, setCheckedState] = useState<string[]>([]);
+  const [cuisineTypes, setCuisineTypes] = useState<string[]>([]);
+  const [dietRestrictions, setDietRestrictions] = useState<string[]>([]);
+  const [intolerances, setIntolerances] = useState<string[]>([]);
+  // const [sliderValue, setSliderValue] => useState<{}>({});
 
   const handleChange = (event: any) => {
-    isChecked.includes(event.target.id) ? setCheckedState(isChecked.filter(selection => selection !== event.target.id)) : setCheckedState([...isChecked, event.target.id]);
+    const sectionID = event.target.parentElement.parentElement.parentElement.id
+    console.log(sectionID)
+    if (sectionID === "cuisineType") {
+      cuisineTypes.includes(event.target.id) ? setCuisineTypes(cuisineTypes.filter(selection => selection !== event.target.id)) : setCuisineTypes([...cuisineTypes, event.target.id]);
+    }
+    else if (sectionID === "dietRestrictions") {
+      dietRestrictions.includes(event.target.id) ? setDietRestrictions(dietRestrictions.filter(selection => selection !== event.target.id)) : setDietRestrictions([...dietRestrictions, event.target.id]);
+    }
+    else if (sectionID === "intolerances") {
+      intolerances.includes(event.target.id) ? setIntolerances(intolerances.filter(selection => selection !== event.target.id)) : setIntolerances([...intolerances, event.target.id]);
+    }
   }
 
   return (
@@ -31,7 +47,12 @@ const Form: React.FC = () => {
               <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
                 <option value="--Meal--">--Meal--</option>
                 <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
+                <option value="main course">Main Course</option>
+                <option value="side dish">Side Dish</option>
+                <option value="dessert">Dessert</option>
+                <option value="appetizer">Appetizer</option>
+                <option value="fingerfood">Fingerfood</option>
+                <option value="snack">snack</option>
               </select>
             </div>
           </li>
@@ -43,7 +64,7 @@ const Form: React.FC = () => {
               <p>What kind of flavors are you in the mood for?</p>
               <div className="slider-container">
                 <div className="slider-wrapper">
-                  <input className="sweet"type="range"/>
+                  <input className="sweet" type="range" min="0" max="20"/>
                   <p>Sweet</p>
                 </div>
                 <div className="slider-wrapper savory">
@@ -72,7 +93,7 @@ const Form: React.FC = () => {
             </div>
             <div className="question-content">
               <p>Are you interested in a type of cuisine?</p>
-              <div className="checkbox-container">
+              <div className="checkbox-container" id="cuisineType">
                 <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="african" onChange={(event) => handleChange(event)}/>
@@ -197,14 +218,14 @@ const Form: React.FC = () => {
             </div>
             <div className="question-content">
               <p>Any dietary restrictions?</p>
-              <div className="checkbox-container">
+              <div className="checkbox-container" id="dietRestrictions">
                 <div className="check-column">
                   <div className="check-wrapper">
-                    <input type="checkbox" id="glutenFree" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="gluten_free" onChange={(event) => handleChange(event)}/>
                     <label>Gluten Free</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="ovoVegeterian" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="ovo_vegetarian" onChange={(event) => handleChange(event)}/>
                     <label>Ovo-vegeterian</label>
                   </div>
                   <div className="check-wrapper">
@@ -222,25 +243,25 @@ const Form: React.FC = () => {
                     <label>Vegan</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="low-fodmap" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="fodmap" onChange={(event) => handleChange(event)}/>
                     <label>Low-FODMAP</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="vegeterian" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="vegetarian" onChange={(event) => handleChange(event)}/>
                     <label>Vegeterian</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="pascetarian" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="pescetarian" onChange={(event) => handleChange(event)}/>
                     <label>Pascetarian</label>
                   </div>
                 </div>
                 <div className="check-column">
                   <div className="check-wrapper">
-                    <input type="checkbox" id="whole30" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="whole_30" onChange={(event) => handleChange(event)}/>
                     <label>Whole30</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="lactoVegeterian" onChange={(event) => handleChange(event)}/>
+                    <input type="checkbox" id="lacto_vegetarian" onChange={(event) => handleChange(event)}/>
                     <label>Lacto-vegeterian</label>
                   </div>
                   <div className="check-wrapper">
@@ -257,7 +278,7 @@ const Form: React.FC = () => {
             </div>
             <div className="question-content">
               <p>Show me results without:</p>
-              <div className="checkbox-container">
+              <div className="checkbox-container" id="intolerances">
                 <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="dairy" onChange={(event) => handleChange(event)}/>
@@ -318,7 +339,7 @@ const Form: React.FC = () => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button>Submit</button>
+            <button onClick={event => submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances)}>Submit</button>
             <button>Random</button>
           </div>
         </div>
