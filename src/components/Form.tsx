@@ -3,6 +3,7 @@ import "./Form.css"
 import { SubmitSearchProps } from "./Types";
 
 
+// const checkBoxes = document.querySelectorAll('input:checked');
 
 const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
@@ -10,11 +11,14 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
   const [cuisineTypes, setCuisineTypes] = useState<string[]>([]);
   const [dietRestrictions, setDietRestrictions] = useState<string[]>([]);
   const [intolerances, setIntolerances] = useState<string[]>([]);
-  // const [sliderValue, setSliderValue] => useState<{}>({});
+  const [checkedState, setCheckedState] = useState<boolean[]>([]);
+  // console.log(isChecked)
 
   const handleChange = (event: any) => {
-    const sectionID = event.target.parentElement.parentElement.parentElement.id
-    console.log(sectionID)
+    const sectionID = event.target.parentElement.parentElement.parentElement.id;
+    // event.target.toggleAttribute('checked');
+
+    // console.log(event.target);
     if (sectionID === "cuisineType") {
       cuisineTypes.includes(event.target.id) ? setCuisineTypes(cuisineTypes.filter(selection => selection !== event.target.id)) : setCuisineTypes([...cuisineTypes, event.target.id]);
     }
@@ -28,6 +32,12 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
   const clearInputs = () => {
     setMeal('');
+    // const checkBoxes = document.querySelectorAll('input:checked');
+    // checkBoxes.forEach(checkbox => {
+    //   console.log(checkbox)
+      // checkbox.checked = false
+      // checkbox.toggleAttribute('checked');
+    // });
     setCuisineTypes([]);
     setDietRestrictions([]);
     setIntolerances([]);
