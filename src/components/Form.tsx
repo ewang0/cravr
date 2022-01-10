@@ -1,5 +1,6 @@
 import React from "react";
 import "./Form.css"
+import Slider from '@mui/material/Slider';
 
 const Form: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Form: React.FC = () => {
         <img className="bulb-icon" src="lightbulb.jpg" alt="lightbulb-icon"></img>
         <div className="questionnaire-info-text">
           <h2>Questionnaire</h2>
-          <p>First, answer some questions about what you're craving. Feel free to leave these blank to just generate some random foods.</p>
+          <p>First, answer some questions about what you're craving. Feel free to leave these blank and generate some random foods.</p>
         </div>
       </aside>
       <form className="questions">
@@ -30,7 +31,14 @@ const Form: React.FC = () => {
               <p>What kind of flavors are you in the mood for?</p>
               <div className="slider-container">
                 <div className="slider-wrapper">
-                  <input className="sweet"type="range"/>
+                  {/* <input className="sweet"type="range"/> */}
+                  <Slider
+                    aria-label="Temperature"
+                    defaultValue={30}
+                    // getAriaValueText={"0"}
+                    color="secondary"
+                    valueLabelDisplay="auto"
+                  />
                   <p>Sweet</p>
                 </div>
                 <div className="slider-wrapper savory">
@@ -87,7 +95,7 @@ const Form: React.FC = () => {
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="easternEuropean"/>
-                    <label>Eastern European</label>
+                    <label>East European</label>
                   </div>
                 </div>
 
