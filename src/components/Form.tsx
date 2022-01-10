@@ -128,7 +128,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                     <label htmlFor="french">French</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="easternEuropean"/>
+                    <input type="checkbox" id="easternEuropean" onChange={(event) => handleChange(event)}/>
                     <label>East European</label>
                   </div>
                 </div>
@@ -205,8 +205,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                     <label>Mexican</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="easternEuropean" onChange={(event) => handleChange(event)}/>
-                    <label>Eastern European</label>
+                    <input type="checkbox" id="jewish" onChange={(event) => handleChange(event)}/>
+                    <label>Jewish</label>
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="italian" onChange={(event) => handleChange(event)}/>
