@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Form.css"
+import Slider from '@mui/material/Slider';
 import { SubmitSearchProps } from "./Types";
 
 
@@ -49,7 +50,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
         <img className="bulb-icon" src="lightbulb.jpg" alt="lightbulb-icon"></img>
         <div className="questionnaire-info-text">
           <h2>Questionnaire</h2>
-          <p>First, answer some questions about what you're craving. Feel free to leave these blank to just generate some random foods.</p>
+          <p>First, answer some questions about what you're craving. Feel free to leave these blank and generate some random foods.</p>
         </div>
       </aside>
       <form className="questions">
@@ -81,7 +82,14 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>What kind of flavors are you in the mood for?</p>
               <div className="slider-container">
                 <div className="slider-wrapper">
-                  <input className="sweet" type="range" min="0" max="20"/>
+                  {/* <input className="sweet"type="range"/> */}
+                  <Slider
+                    aria-label="Temperature"
+                    defaultValue={30}
+                    // getAriaValueText={"0"}
+                    color="secondary"
+                    valueLabelDisplay="auto"
+                  />
                   <p>Sweet</p>
                 </div>
                 <div className="slider-wrapper savory">
@@ -137,8 +145,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                     <label htmlFor="french">French</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="jewish" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="jewish">Jewish</label>
+                    <input type="checkbox" id="easternEuropean" onChange={(event) => handleChange(event)}/>
+                    <label>East European</label>
                   </div>
                 </div>
 
@@ -214,8 +222,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                     <label>Mexican</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="easternEuropean" onChange={(event) => handleChange(event)}/>
-                    <label>Eastern European</label>
+                    <input type="checkbox" id="jewish" onChange={(event) => handleChange(event)}/>
+                    <label>Jewish</label>
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="italian" onChange={(event) => handleChange(event)}/>
