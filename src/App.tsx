@@ -8,7 +8,6 @@ import sampleData from './sampleData';
 const App: React.FC = () => {
 
   const [recipes, setRecipes] = useState(sampleData)
-  // const [endPoint, setEndPoint] = useState('https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian');
   const [typeEndPoint, setTypeEndPoint] = useState('');
   const [cuisineTypeEndPoint, setCuisineTypeEndPoint] = useState('');
   const [dietRestrictionEndPoint, setDietRestrictionEndPoint] = useState('');

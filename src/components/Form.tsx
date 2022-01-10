@@ -13,13 +13,10 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
   const [dietRestrictions, setDietRestrictions] = useState<string[]>([]);
   const [intolerances, setIntolerances] = useState<string[]>([]);
   const [checkedState, setCheckedState] = useState<boolean[]>([]);
-  // console.log(isChecked)
 
   const handleChange = (event: any) => {
     const sectionID = event.target.parentElement.parentElement.parentElement.id;
     // event.target.toggleAttribute('checked');
-
-    // console.log(event.target);
     if (sectionID === "cuisineType") {
       cuisineTypes.includes(event.target.id) ? setCuisineTypes(cuisineTypes.filter(selection => selection !== event.target.id)) : setCuisineTypes([...cuisineTypes, event.target.id]);
     }
