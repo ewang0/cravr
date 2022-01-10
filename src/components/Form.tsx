@@ -4,6 +4,7 @@ import Slider from '@mui/material/Slider';
 import { SubmitSearchProps } from "./Types";
 
 
+// const checkBoxes = document.querySelectorAll('input:checked');
 
 const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
@@ -11,11 +12,11 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
   const [cuisineTypes, setCuisineTypes] = useState<string[]>([]);
   const [dietRestrictions, setDietRestrictions] = useState<string[]>([]);
   const [intolerances, setIntolerances] = useState<string[]>([]);
-  // const [sliderValue, setSliderValue] => useState<{}>({});
+  const [checkedState, setCheckedState] = useState<boolean[]>([]);
 
   const handleChange = (event: any) => {
-    const sectionID = event.target.parentElement.parentElement.parentElement.id
-    console.log(sectionID)
+    const sectionID = event.target.parentElement.parentElement.parentElement.id;
+    // event.target.toggleAttribute('checked');
     if (sectionID === "cuisineType") {
       cuisineTypes.includes(event.target.id) ? setCuisineTypes(cuisineTypes.filter(selection => selection !== event.target.id)) : setCuisineTypes([...cuisineTypes, event.target.id]);
     }
@@ -25,6 +26,19 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
     else if (sectionID === "intolerances") {
       intolerances.includes(event.target.id) ? setIntolerances(intolerances.filter(selection => selection !== event.target.id)) : setIntolerances([...intolerances, event.target.id]);
     }
+  }
+
+  const clearInputs = () => {
+    setMeal('');
+    // const checkBoxes = document.querySelectorAll('input:checked');
+    // checkBoxes.forEach(checkbox => {
+    //   console.log(checkbox)
+      // checkbox.checked = false
+      // checkbox.toggleAttribute('checked');
+    // });
+    setCuisineTypes([]);
+    setDietRestrictions([]);
+    setIntolerances([]);
   }
 
   return (
@@ -48,8 +62,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
                 <option value="--Meal--">--Meal--</option>
                 <option value="breakfast">Breakfast</option>
-                <option value="main course">Main Course</option>
-                <option value="side dish">Side Dish</option>
+                <option value="main_course">Main Course</option>
+                <option value="side_dish">Side Dish</option>
                 <option value="dessert">Dessert</option>
                 <option value="appetizer">Appetizer</option>
                 <option value="fingerfood">Fingerfood</option>
@@ -136,7 +150,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                 <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="southern" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="southern">Southern</label>v
+                    <label htmlFor="southern">Southern</label>
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="british" onChange={(event) => handleChange(event)}/>
@@ -347,7 +361,10 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button onClick={event => submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances)}>Submit</button>
+            <button onClick={event => {
+              submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances);
+              clearInputs();
+              }}>Submit</button>
             <button>Random</button>
           </div>
         </div>
