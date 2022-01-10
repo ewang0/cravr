@@ -26,6 +26,13 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
     }
   }
 
+  const clearInputs = () => {
+    setMeal('');
+    setCuisineTypes([]);
+    setDietRestrictions([]);
+    setIntolerances([]);
+  }
+
   return (
     <section className="form-section">
       <aside className="questionnaire-info">
@@ -128,7 +135,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                 <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="southern" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="southern">Southern</label>v
+                    <label htmlFor="southern">Southern</label>
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="british" onChange={(event) => handleChange(event)}/>
@@ -339,7 +346,10 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button onClick={event => submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances)}>Submit</button>
+            <button onClick={event => {
+              submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances);
+              clearInputs();
+              }}>Submit</button>
             <button>Random</button>
           </div>
         </div>
