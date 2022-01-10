@@ -1,0 +1,36 @@
+.recipe-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.recipe-details-content {
+    display: flex;
+    max-width: 1000px;
+    margin: 50px;
+}
+
+.placeholder-img {
+    height: 360px;
+    width: 480px;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+
+.line {
+    border-left: 1px solid gray;
+    margin: 30px;
+}
+
+.tags {
+    display: flex;
+    margin-left: -10px;
+}
+
+.tags article {
+    padding: 10px 20px 10px 20px;
+    background-color: lightgray;
+    margin: 10px;
+    border-radius: 50px;
+}

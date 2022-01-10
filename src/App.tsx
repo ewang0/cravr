@@ -4,6 +4,7 @@ import Form from './components/Form';
 import ImageGrid from './components/ImageGrid';
 import Nav from './components/Nav'
 import sampleData from './sampleData';
+import Details from './components/Details'
 
 const App: React.FC = () => {
 
@@ -29,10 +30,11 @@ const App: React.FC = () => {
   return (
     <main className="App">
       <Nav />
-      <section className="main-container">
+      <Details />
+      {/* <section className="main-container">
         <Form submitSearch={submitSearch}/>
         <ImageGrid recipes={recipes} />
-      </section>
+      </section> */}
     </main>
   );
 }
