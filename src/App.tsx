@@ -8,29 +8,42 @@ import sampleData from './sampleData';
 const App: React.FC = () => {
 
   const [recipes, setRecipes] = useState(sampleData)
-  const [endPoint, setEndPoint] = useState('https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian');
+  const [typeEndPoint, setTypeEndPoint] = useState('');
+  const [cuisineTypeEndPoint, setCuisineTypeEndPoint] = useState('');
+  const [dietRestrictionEndPoint, setDietRestrictionEndPoint] = useState('');
+  const [intoleranceEndPoint, setIntoleranceEndPoint] = useState('');
   // 'https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian'
-  // useEffect(() => {
-  //   const fetchData = async() => {
-  //     const res = await fetch(endPoint)
-  //     const resJson = await res.json()
-  //     console.log("this is the response>>", resJson.results)
-  //     setRecipes(resJson.results)
-  //   }
-  //   fetchData();
-  // }, [endPoint]);
+  useEffect(() => {
+    const fetchData = async() => {
+      const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?${cuisineTypeEndPoint}${intoleranceEndPoint}${dietRestrictionEndPoint}${typeEndPoint}&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`)
+      const resJson = await res.json()
+      .catch(error => console.log(error));
+      // !resJson.length ? 
+      setRecipes(resJson.results)
+    }
+    fetchData();
+  }, [typeEndPoint, cuisineTypeEndPoint, dietRestrictionEndPoint, intoleranceEndPoint]);
 
   const submitSearch = (event: any, type?: string, cuisineTypes?: string[], dietRestrictions?: string[], intolerances?: string[]) => {
     event.preventDefault();
-    console.log('hello')
-    setEndPoint(`https://api.spoonacular.com/recipes/complexSearch?${cuisineTypes ? `type=${cuisineTypes.join(",")}` : ''}&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`);
+    console.log('hello');
+    if (cuisineTypes) {
+      setCuisineTypeEndPoint(`cuisine=${cuisineTypes.join(",")}`)
+    }
+    if (dietRestrictions) {
+      setDietRestrictionEndPoint(`&diet=${dietRestrictions.join(",")}`)
+    }
+    if (intolerances) {
+      setIntoleranceEndPoint(`&intolerances=${intolerances.join(",")}`)
+    }
+    setTypeEndPoint(`&type=${type}`);
   }
 
   return (
     <main className="App">
       <Nav />
       <section className="main-container">
-        <Form submitSearch={submitSearch}/>
+        <Form submitSearch={submitSearch} />
         <ImageGrid recipes={recipes} />
       </section>
     </main>
