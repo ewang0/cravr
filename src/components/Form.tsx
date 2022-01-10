@@ -54,8 +54,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
                 <option value="--Meal--">--Meal--</option>
                 <option value="breakfast">Breakfast</option>
-                <option value="main course">Main Course</option>
-                <option value="side dish">Side Dish</option>
+                <option value="main_course">Main Course</option>
+                <option value="side_dish">Side Dish</option>
                 <option value="dessert">Dessert</option>
                 <option value="appetizer">Appetizer</option>
                 <option value="fingerfood">Fingerfood</option>
