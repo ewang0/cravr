@@ -2,7 +2,7 @@
 
 describe('Main page', () => {
 
-  beforeEach(() => {
+  before(() => {
     // cy.intercept('GET', 'https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian', {
     //   "results":[
     //     {
@@ -18,27 +18,20 @@ describe('Main page', () => {
     //   ]
     // })
 
+      cy.visit('http://localhost:3000')
+     
+       
+
     
   })
 
   it('should display main page', () => {
-    cy.visit('http://localhost:3000')
+     
     cy.get('nav').contains('Cravr')
   })
 
   it('should search for recipes by filtering', () => {
-    
-    cy.get('.option-select').select('Breakfast')
-    .get('#american').check()
-    .get('#gluten_free').check()
-    .get('#seafood').check()
-    .get('#sesame').check()
-    .get('.submit-button').click()
-   
-  })
-
-  it('should check if search results are displayed correctly', () => {
-    cy.intercept('GET', 'https://api.spoonacular.com/recipes/complexSearch?apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&type=breakfast&cuisine=american&diet=gluten_free&intolerance=seafood,sesame', {
+    cy.intercept('GET', 'https://api.spoonacular.com/recipes/complexSearch?cuisine=american&intolerances=seafood,sesame&diet=gluten_free&type=breakfast&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7', {
       results:[
         {
           "id": 655239,
@@ -57,7 +50,20 @@ describe('Main page', () => {
         }
       ]
     })
-    cy.get('.image-grid-section').find('[id=655239]')
+    
+    cy.get('.option-select').select('Breakfast')
+    .get('#american').check()
+    .get('#gluten_free').check()
+    .get('#seafood').check()
+    .get('#sesame').check()
+    .get('.submit-button').click()
+   
+  })
+
+  it('should check if search results are displayed correctly', () => {
+    
+    cy.get('.card-container').contains("Peanut Butter Banana French Toast")
+    .get('.card-container').contains("Vegan French Toast")
 
   })
 
