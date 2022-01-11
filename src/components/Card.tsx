@@ -1,8 +1,7 @@
 import React from "react";
 import './Card.css';
-import Details from "./Details";
 import { Recipe } from './Types'
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Card: React.FC<Recipe> =({ id, title, image }) => {
   return(
@@ -10,11 +9,7 @@ const Card: React.FC<Recipe> =({ id, title, image }) => {
       <img className="food-img" src={image} alt="Food IMG"></img>
       <div className="card-text">
         <p>{title}</p>
-        <NavLink to={`/details/${id}`} className="see-details">See Details</NavLink>
-        {/* <Routes >
-          <Route path="/details" element={<Details />}/>
-        </Routes> */}
-        {/* <a className="see-details"href="">See details<img src="arrow.svg" alt="Forward Arrow"></img></a> */}
+        <Link to={`/details/${id}`} className="see-details">See Details<img src="arrow.svg" alt="Forward Arrow"></img></Link>
       </div>
     </div>
   )
