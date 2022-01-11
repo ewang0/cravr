@@ -361,7 +361,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button onClick={event => {
+            <button className="submit-button"onClick={event => {
               submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances);
               clearInputs();
               }}>Submit</button>
