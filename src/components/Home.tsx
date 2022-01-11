@@ -16,7 +16,6 @@ const Home: React.FC = () => {
       const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?${cuisineTypeEndPoint}${intoleranceEndPoint}${dietRestrictionEndPoint}${typeEndPoint}&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`)
       const resJson = await res.json()
       .catch(error => console.log(error));
-      // !resJson.length ? 
       setRecipes(resJson.results)
     }
     fetchData();
