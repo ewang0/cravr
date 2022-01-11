@@ -32,7 +32,7 @@ An app that fulfills your cravings!  Have you ever felt the sudden urge for Ital
 
 ## Challenges
 - Working with an API with a daily request quota proved difficult with constant testing and debugging
-- Learning TypeScript sytax and integrating with React
+- Learning TypeScript syntax and integrating with React
 
 ## Additions
 - Function that allows a user to favorite a food that can be viewed later
