@@ -14,7 +14,7 @@
   - [Specs](#Specs)
 
 ## Abstract
-
+An app that fulfills your cravings!  Have you ever felt the sudden urge for Italian food but not sure what to make?  Cravr is an app that allows you to search for recipes according to your likes.  You have the option of selecting a food type as well as filtering cuisine type, dietary needs, and intolerances.  See a dish that interests you?  Click on it and the dish summary is displayed along with a link to the ingredients and instructions on how to make it.
 
 ## Technologies
 ![image](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![image](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![image](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)   
@@ -26,12 +26,18 @@
 
 
 ## Wins
+- Successfully integrated TypeScript to our project
+
 
 
 ## Challenges
-
+- Working with an API with a daily request quota proved difficult with constant testing and debugging
+- Learning TypeScript syntax and integrating with React
 
 ## Additions
+- Function that allows a user to favorite a food that can be viewed later
+- Adding a login function
+- Allow user to share a dish through social media
 
 
 ## Contributors
