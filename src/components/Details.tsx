@@ -1,8 +1,44 @@
-import React from "react";
-import './Details.css'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import './Details.css';
+import { Link, useParams } from 'react-router-dom';
+import { DetailsProps } from "./Types";
 
 const Details: React.FC = () => {
+
+  const id = useParams<string>().id;
+  const [details, setDetails] = useState<DetailsProps>();
+
+  useEffect(() => {
+    const fetchData = async() => {
+      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`)
+      const resJson = await res.json()
+      .catch(error => console.log(error));
+      setDetails(resJson);
+    }
+    fetchData();
+  }, [id]);
+
+  const dietTags = details?.diets.map(diet => {
+    return (
+      <p>{diet}</p>
+    )
+  })
+
+  const dishTags = details?.dishTypes.map(dish => {
+    return (
+      <p>{dish}</p>
+    )
+  })
+
+  const cuisineTags = details?.cuisines.map(cuisine => {
+    return (
+      <p>{cuisine}</p>
+    )
+  })
+  
+  const summaryArr = details?.summary.split('. ');
+  summaryArr?.splice(summaryArr.length - 3, 3);
+  const summary = summaryArr?.join('. ')
 
   return (
     <section className="recipe-details">
