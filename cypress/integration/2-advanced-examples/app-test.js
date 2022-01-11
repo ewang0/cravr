@@ -3,30 +3,11 @@
 describe('Main page', () => {
 
   before(() => {
-    // cy.intercept('GET', 'https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian', {
-    //   "results":[
-    //     {
-    //       "id": 648190,
-    //       "title": "Italian Pasta Salad with organic Arugula",
-    //       "image": "https://spoonacular.com/recipeImages/648190-312x231.jpg"
-    //     },
-    //     {
-    //       "id": 649850,
-    //       "title": "Lemon-Pepper Fettucine Alfredo",
-    //       "image": "https://spoonacular.com/recipeImages/649850-312x231.jpg"
-    //     }
-    //   ]
-    // })
-
-      cy.visit('http://localhost:3000')
-     
-       
-
-    
+   
+    cy.visit('http://localhost:3000')
   })
 
   it('should display main page', () => {
-     
     cy.get('nav').contains('Cravr')
   })
 
@@ -57,18 +38,16 @@ describe('Main page', () => {
     .get('#seafood').check()
     .get('#sesame').check()
     .get('.submit-button').click()
-   
   })
 
   it('should check if search results are displayed correctly', () => {
-    
     cy.get('.card-container').contains("Peanut Butter Banana French Toast")
     .get('.card-container').contains("Vegan French Toast")
-
+    .get('.card-container').contains("Classic Eggs Benedict")
   })
 
   it.skip('should click on a result', () => {
-
+    cy.intercept('GET', '')
   })
 
   it.skip('should check if details are displayed for that dish', () => {
