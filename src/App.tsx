@@ -3,9 +3,9 @@ import './App.css';
 import Nav from './components/Nav'
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home'
+import Details from './components/Details';
 
 const App: React.FC = () => {
-  // 'https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7&cuisine=italian&intolerances=egg&diet=vegetarian'
 
   return (
     <main className="App">
@@ -14,6 +14,9 @@ const App: React.FC = () => {
       <section className="main-container">
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path="/details" element={<Details />}>
+            <Route path="/details/:id" element={<Details />}/>
+          </Route>
         </Routes>
       </section>
     </main>
