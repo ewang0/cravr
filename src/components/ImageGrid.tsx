@@ -6,7 +6,7 @@ import { SampleDataProps } from './Types'
 
 
 
-const ImageGrid: React.FC<SampleDataProps> = ({recipes}) => {
+const ImageGrid: React.FC<SampleDataProps> = ({ recipes }) => {
   const eachRecipe = recipes.map(recipe=> {
     console.log(recipe.id)
     return (
@@ -15,7 +15,6 @@ const ImageGrid: React.FC<SampleDataProps> = ({recipes}) => {
         id={recipe.id}
         title={recipe.title}
         image={recipe.image}
-
         />
 
     )
