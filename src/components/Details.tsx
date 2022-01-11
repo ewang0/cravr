@@ -42,8 +42,9 @@ const Details: React.FC = () => {
 
   return (
     <section className="recipe-details">
-      <Link to="/">back</Link>
+      
       <div className="recipe-details-content">
+        <Link className="back-button" to="/"><img className="left-arrow-icon" src="arrow.svg"></img>Back</Link>
         <div className="content-left">
           <div className="image-description">
             <div className="placeholder-img">
@@ -63,10 +64,7 @@ const Details: React.FC = () => {
             <h2>Description</h2>
             <p dangerouslySetInnerHTML={{__html: `${summary}.`!}}></p>
           </div>
-          <div>
-            <h2>Link to Recipe</h2>
-            <p>{details?.spoonacularSourceUrl}</p>
-          </div>
+          <a href={details?.spoonacularSourceUrl} target="_blank"><button className="view-recipe-button">View Recipe</button></a>
         </div>
       </div>
     </section>

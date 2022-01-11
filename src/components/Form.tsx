@@ -71,7 +71,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               </select>
             </div>
           </li>
-          <li>
+          {/* <li>
             <div className="num-circle">
               <p>2</p>
             </div>
@@ -79,39 +79,77 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>What kind of flavors are you in the mood for?</p>
               <div className="slider-container">
                 <div className="slider-wrapper">
-                  {/* <input className="sweet"type="range"/> */}
                   <Slider
-                    aria-label="Temperature"
+                    aria-label="Sweet"
                     defaultValue={30}
-                    // getAriaValueText={"0"}
                     color="secondary"
                     valueLabelDisplay="auto"
+                    sx ={{
+                      width: 250,
+                      height: 6,
+                    }}
                   />
                   <p>Sweet</p>
                 </div>
                 <div className="slider-wrapper savory">
-                  <input className="savory" type="range"/>
+                  <Slider
+                        aria-label="Savory"
+                        defaultValue={30}
+                        valueLabelDisplay="auto"
+                        onChange={(event) => handleSlider(event)}
+                        sx ={{
+                          width: 250,
+                          height: 6,
+                          color: 'orange'
+                        }}
+                      />
                   <p>Savory</p>
                 </div>
                 <div className="slider-wrapper sour">
-                  <input className="sour" type="range"/>
+                  <Slider
+                    aria-label="Sour"
+                    defaultValue={30}
+                    valueLabelDisplay="auto"
+                    sx ={{
+                      width: 250,
+                      height: 6,
+                      color: 'LimeGreen'
+                    }}
+                  />
                   <p>Sour</p>
                 </div>
                 <div className="slider-wrapper bitter">
-                  <input className="bitter" type="range"/>
+                  <Slider
+                      aria-label="Sour"
+                      defaultValue={30}
+                      valueLabelDisplay="auto"
+                      sx ={{
+                        width: 250,
+                        height: 6,
+                      }}
+                    />
                   <p>Bitter</p>
                 </div>
                 <div className="slider-wrapper spicy">
-                  <input className="spicy" type="range"/>
+                  <Slider
+                      aria-label="Sour"
+                      defaultValue={30}
+                      valueLabelDisplay="auto"
+                      sx ={{
+                        width: 250,
+                        height: 6,
+                        color: 'OrangeRed'
+                      }}
+                    />
                   <p>Spicy</p>
                 </div>
               </div>
 
             </div>
-          </li>
+          </li> */}
           <li>
             <div className="num-circle">
-              <p>3</p>
+              <p>2</p>
             </div>
             <div className="question-content">
               <p>Are you interested in a type of cuisine?</p>
@@ -211,8 +249,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
                 <div className="check-column">
                   <div className="check-wrapper">
-                     <input type="checkbox" id="irish" onChange={(event) => handleChange(event)}/>
-                     <label>Irish</label>
+                    <input type="checkbox" id="irish" onChange={(event) => handleChange(event)}/>
+                    <label>Irish</label>
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="mexican" onChange={(event) => handleChange(event)}/>
@@ -236,7 +274,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
           </li>
           <li>
             <div className="num-circle">
-              <p>4</p>
+              <p>3</p>
             </div>
             <div className="question-content">
               <p>Any dietary restrictions?</p>
@@ -296,7 +334,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
           </li>
           <li>
             <div className="num-circle">
-              <p>5</p>
+              <p>4</p>
             </div>
             <div className="question-content">
               <p>Show me results without:</p>
