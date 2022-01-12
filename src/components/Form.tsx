@@ -309,17 +309,17 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Any dietary restrictions?</p>
               <div className="checkbox-container" id="dietRestrictions">
                 <div className="check-column">
-                {dietOptions.map((dietOption, index) => {
-                    return (
-                      <div className="check-wrapper">
-                        <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
-                          handleChange(event);
-                          handleDietCheckBoxes(index)
-                        }}/>
-                        <label >{dietOption.name}</label>
-                      </div>
-                    )
-                  })}
+                  {dietOptions.map((dietOption, index) => {
+                      return (
+                        <div className="check-wrapper">
+                          <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
+                            handleChange(event);
+                            handleDietCheckBoxes(index)
+                          }}/>
+                          <label >{dietOption.name}</label>
+                        </div>
+                      )
+                    })}
                   {/* <div className="check-wrapper">
                     <input type="checkbox" id="gluten_free" onChange={(event) => handleChange(event)}/>
                     <label>Gluten Free</label>
@@ -335,9 +335,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="ketogenic" onChange={(event) => handleChange(event)}/>
                     <label>Ketogenic</label>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="check-column">
+                {/* <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="vegan" onChange={(event) => handleChange(event)}/>
                     <label>Vegan</label>
@@ -367,8 +367,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="paleo" onChange={(event) => handleChange(event)}/>
                     <label>Paleo</label>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </div>
             </div>
           </li>
@@ -380,7 +380,18 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Show me results without:</p>
               <div className="checkbox-container" id="intolerances">
                 <div className="check-column">
-                  <div className="check-wrapper">
+                  {intoleranceOptions.map((intoleranceOption, index) => {
+                    return (
+                      <div className="check-wrapper">
+                        <input type="checkbox" id={intoleranceOption.id} checked={intoleranceCheckedState[index]} onChange={(event) => {
+                          handleChange(event);
+                          handleIntoleranceCheckBoxes(index)
+                          }}/>
+                        <label >{intoleranceOption.name}</label>
+                      </div>
+                    )
+                  })}
+                  {/* <div className="check-wrapper">
                     <input type="checkbox" id="dairy" onChange={(event) => handleChange(event)}/>
                     <label>Dairy</label>
                   </div>
@@ -395,9 +406,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="egg" onChange={(event) => handleChange(event)}/>
                     <label>Egg</label>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="check-column">
+                {/* <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="seafood" onChange={(event) => handleChange(event)}/>
                     <label>Seafood</label>
@@ -430,9 +441,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="wheat" onChange={(event) => handleChange(event)}/>
-                    <label>Wheat</label>
-                  </div> */}
-                </div>
+                    <label>Wheat</label> */}
+                  {/* </div> */}
+                {/* </div> */}
               </div>
             </div>
           </li>
