@@ -5,12 +5,12 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
-import { SubmitSearchProps } from "./Types";
+import { FormProps } from "./Types";
 
 
 // const checkBoxes = document.querySelectorAll('input:checked');
 
-const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
+const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
 
   const [meal, setMeal] = useState('');
   const [cuisineTypes, setCuisineTypes] = useState<string[]>([]);
@@ -428,7 +428,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances);
               clearInputs();
               }}>Submit</button>
-            <button>Random</button>
+            <button onClick={event => {
+              randomSearch(event)
+            }}>Random</button>
           </div>
         </div>
       </form>
