@@ -85,7 +85,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                 <option value="dessert">Dessert</option>
                 <option value="appetizer">Appetizer</option>
                 <option value="fingerfood">Fingerfood</option>
-                <option value="snack">snack</option>
+                <option value="snack">Snack</option>
               </select>
             </div>
           </li>
