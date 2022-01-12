@@ -10,10 +10,11 @@ const Details: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async() => {
-      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=dde7a1678dfc4f46b6d031e5944114cf`)
+      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=b4cbcd2b1598415891d142caedb69ce6`)
       const resJson = await res.json()
       .catch(error => console.log(error));
       setDetails(resJson);
+      console.log(resJson)
     }
     fetchData();
   }, [id]);

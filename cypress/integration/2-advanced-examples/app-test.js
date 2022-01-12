@@ -12,28 +12,27 @@ describe('Main page', () => {
   })
 
   it('should search for recipes by filtering', () => {
-    cy.intercept('GET', 'https://api.spoonacular.com/recipes/complexSearch?cuisine=american&intolerances=seafood,sesame&diet=gluten_free&type=breakfast&apiKey=dde7a1678dfc4f46b6d031e5944114cf', {
+    cy.intercept('GET', 'https://api.spoonacular.com/recipes/complexSearch?cuisine=american&intolerances=seafood,sesame&diet=gluten_free&type=&apiKey=b4cbcd2b1598415891d142caedb69ce6', {
       results:[
         {
-          "id": 655239,
-          "title": "Peanut Butter Banana French Toast",
-          "image": "https://spoonacular.com/recipeImages/655239-312x231.jpg"
+          "id": 715594,
+          "title": "Homemade Garlic and Basil French Fries",
+          "image": "https://spoonacular.com/recipeImages/715594-312x231.jpg"
         },
         {
-          "id": 639594,
-          "title": "Classic Eggs Benedict",
-          "image": "https://spoonacular.com/recipeImages/639594-312x231.jpg"
+          "id": 715424,
+          "title": "The Best Chili",
+          "image": "https://spoonacular.com/recipeImages/715424-312x231.jpg"
         },
         {
-          "id": 1095748,
-          "title": "Vegan French Toast",
-          "image": "https://spoonacular.com/recipeImages/1095748-312x231.jpg"
+          "id": 642540,
+          "title": "Falafel Burgers",
+          "image": "https://spoonacular.com/recipeImages/642540-312x231.jpg"
         }
       ]
     })
     
-    cy.get('.option-select').select('Breakfast')
-    .get('#american').check()
+    cy.get('#american').check()
     .get('#gluten_free').check()
     .get('#seafood').check()
     .get('#sesame').check()
@@ -41,32 +40,33 @@ describe('Main page', () => {
   })
 
   it('should check if search results are displayed correctly', () => {
-    cy.get('.card-container').contains("Peanut Butter Banana French Toast")
-    .get('.card-container').contains("Vegan French Toast")
-    .get('.card-container').contains("Classic Eggs Benedict")
+    cy.get('.card-container').contains("Homemade Garlic and Basil French Fries")
+    .get('.card-container').contains("The Best Chili")
+    .get('.card-container').contains("Falafel Burgers")
   })
 
   it('should click on a result', () => {
-    cy.intercept('GET', 'https://api.spoonacular.com/recipes/655239/information?&apiKey=dde7a1678dfc4f46b6d031e5944114cf', {
-      "id": 655239,
-      "title": "Peanut Butter Banana French Toast",
-      "image": "https://spoonacular.com/recipeImages/655239-556x370.jpg",
-      "dishTypes": ["morning meal", "brunch", "breakfast"],
-      "diets": ["dairy free", "lacto ovo vegetarian"],
-      "cuisines": ["American"],
-      "summary": "The recipe Peanut Butter Banana French Toast could satisfy your American craving in around <b>around 45 minutes</b>. For <b>88 cents per serving</b>, this recipe <b>covers 25%</b> of your daily requirements of vitamins and minerals. One portion of this dish contains about <b>21g of protein</b>, <b>23g of fat</b>, and a total of <b>534 calories</b>. This recipe serves 1. A mixture of bread, ground cinnamon, orange juice, and a handful of other ingredients are all it takes to make this recipe so yummy. 2 people have tried and liked this recipe. It is brought to you by Foodista. It is a good option if you're following a <b>dairy free and lacto ovo vegetarian</b> diet. It works well as a breakfast. All things considered, we decided this recipe <b>deserves a spoonacular score of 63%</b>. This score is good. "
+    cy.intercept('GET', 'https://api.spoonacular.com/recipes/715594/information?&apiKey=b4cbcd2b1598415891d142caedb69ce6', {
+      "id": 715594,
+      "cuisines": [],
+      "title": "Homemade Garlic and Basil French Fries",
+      "image": "https://spoonacular.com/recipeImages/715594-556x370.jpg",
+      "dishTypes": ["lunch", "main course", "main dish", "dinner"],
+      "diets": ["dairy free", "lacto ovo vegetarian", "vegan"],
+      "summary": "The recipe Homemade Garlic and Basil French Fries is ready <b>in roughly 45 minutes</b> and is definitely a super <b>vegan</b> option for lovers of American food. One serving contains <b>596 calories</b>, <b>18g of protein</b>, and <b>15g of fat</b>. For <b>83 cents per serving</b>, you get a side dish that serves 2. Several people made this recipe, and 1669 would say it hit the spot. If you have garlic salt, flour, garlic powder, and a few other ingredients on hand, you can make it. All things considered, we decided this recipe <b>deserves a spoonacular score of 100%</b>. This score is outstanding. "
     })
-    .get('.see-details').first().click()
+    .get('.arrow-img').first().click()
+  
   })
 
   it('should check if details are displayed for that dish', () => {
-    
-   cy.get('h2').contains("Peanut Butter Banana French Toast")
-   .get('p').contains("The recipe Peanut Butter Banana French Toast could satisfy your American craving in around around 45 minutes.")
+  cy.get('h2').contains("Homemade Garlic and Basil French Fries")
+  .get('p').contains("The recipe Homemade Garlic and Basil French Fries is ready in roughly 45 minutes and is definitely a super vegan option for lovers of American food.")
+   
   })
 
-  it('should return home', () => {
-    cy.get('nav').contains('Home').click()
+  it('should return back to search results', () => {
+    cy.get('.left-arrow-icon').click()
   })
 
 })
