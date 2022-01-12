@@ -17,6 +17,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
     new Array(dietOptions.length).fill(false)
   );
 
+  const [intoleranceCheckedState, setIntoleranceCheckedState] = useState<boolean[]>(
+    new Array(intoleranceOptions.length).fill(false)
+  );
 
   const handleChange = (event: any) => {
     const sectionID = event.target.parentElement.parentElement.parentElement.id;
