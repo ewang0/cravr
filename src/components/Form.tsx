@@ -43,12 +43,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
   const clearInputs = () => {
     setMeal('');
-    // const checkBoxes = document.querySelectorAll('input:checked');
-    // checkBoxes.forEach(checkbox => {
-    //   console.log(checkbox)
-      // checkbox.checked = false
-      // checkbox.toggleAttribute('checked');
-    // });
+    setCuisineCheckedState(new Array(cuisineTypesOptions.length).fill(false))
+    setDietCheckedState(new Array(dietOptions.length).fill(false))
     setCuisineTypes([]);
     setDietRestrictions([]);
     setIntolerances([]);
