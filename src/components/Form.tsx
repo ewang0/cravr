@@ -113,7 +113,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                 <div className="check-column">
                   {cuisineTypesOptions.map((cuisineOption, index) => {
                     return (
-                      <div className="check-wrapper">
+                      <div className="check-wrapper" key={cuisineOption.id}>
                         <input type="checkbox" id={cuisineOption.id} checked={cuisineCheckedState[index]} onChange={(event) => {
                           handleChange(event);
                           handleCuisineCheckBoxes(index)
@@ -249,7 +249,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                 <div className="check-column">
                   {dietOptions.map((dietOption, index) => {
                       return (
-                        <div className="check-wrapper">
+                        <div className="check-wrapper" key={dietOption.id}>
                           <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
                             handleChange(event);
                             handleDietCheckBoxes(index)
@@ -320,7 +320,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                 <div className="check-column">
                   {intoleranceOptions.map((intoleranceOption, index) => {
                     return (
-                      <div className="check-wrapper">
+                      <div className="check-wrapper" key={intoleranceOption.id}>
                         <input type="checkbox" id={intoleranceOption.id} checked={intoleranceCheckedState[index]} onChange={(event) => {
                           handleChange(event);
                           handleIntoleranceCheckBoxes(index)
