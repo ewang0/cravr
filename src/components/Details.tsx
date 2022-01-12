@@ -10,7 +10,9 @@ const Details: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async() => {
-      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=b4cbcd2b1598415891d142caedb69ce6`)
+
+      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=${process.env.REACT_APP_API_KEY}`)
+
       const resJson = await res.json()
       .catch(error => console.log(error));
       setDetails(resJson);
@@ -75,7 +77,6 @@ const Details: React.FC = () => {
       </div>
     </section>
   )
-
 }
 
 export default Details;

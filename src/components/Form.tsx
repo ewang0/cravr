@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Form.css"
+import "./Form.css";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -39,17 +39,17 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
   }
 
   const handleCuisineCheckBoxes = (position: number) => {
-    const updatedCuisineCheckedState = cuisineCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    const updatedCuisineCheckedState = cuisineCheckedState.map((item: boolean, index: number) => index === position ? !item : item);
     setCuisineCheckedState(updatedCuisineCheckedState);
   }
   
   const handleDietCheckBoxes = (position: number) => {
-    const updatedDietCheckedState = dietCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    const updatedDietCheckedState = dietCheckedState.map((item: boolean, index: number) => index === position ? !item : item);
     setDietCheckedState(updatedDietCheckedState);
   }
 
   const handleIntoleranceCheckBoxes = (position: number) => {
-    const updatedIntoleranceCheckedState = intoleranceCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    const updatedIntoleranceCheckedState = intoleranceCheckedState.map((item: boolean, index: number) => index === position ? !item : item);
     setIntoleranceCheckedState(updatedIntoleranceCheckedState);
   }
 
@@ -113,7 +113,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                 <div className="check-column">
                   {cuisineTypesOptions.map((cuisineOption, index) => {
                     return (
-                      <div className="check-wrapper">
+                      <div className="check-wrapper" key={cuisineOption.id}>
                         <input type="checkbox" id={cuisineOption.id} checked={cuisineCheckedState[index]} onChange={(event) => {
                           handleChange(event);
                           handleCuisineCheckBoxes(index)
@@ -122,120 +122,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                       </div>
                     )
                   })}
-                  {/* <div className="check-wrapper">
-                    <input type="checkbox" id="african" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="african">African</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="european" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="european" >European</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="japanese" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="japanese">Japanese</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="nordic" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="nordic">Nordic</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="american" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="american">American</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="french" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="french">French</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="eastern_european" onChange={(event) => handleChange(event)}/>
-                    <label>East European</label> */}
-                  {/* </div> */}
                 </div>
-
-                {/* <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="southern" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="southern">Southern</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="british" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="british">British</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="german" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="german">German</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="korean" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="korean">Korean</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="spanish" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="spanish">Spanish</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="cajun" onChange={(event) => handleChange(event)}/>
-                    <label htmlFor="cajun">Cajun</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="greek" onChange={(event) => handleChange(event)}/>
-                    <label>Greek</label>
-                  </div>
-                </div>
-
-                <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="latinAmerican" onChange={(event) => handleChange(event)}/>
-                    <label>Latin American</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="thai" onChange={(event) => handleChange(event)}/>
-                    <label>Thai</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="caribbean" onChange={(event) => handleChange(event)}/>
-                    <label>Caribbean</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="indian" onChange={(event) => handleChange(event)}/>
-                    <label>Indian</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="mediterranean" onChange={(event) => handleChange(event)}/>
-                    <label>Mediterranean</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="vietnamese" onChange={(event) => handleChange(event)}/>
-                    <label>Vietnamese</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="chinese" onChange={(event) => handleChange(event)}/>
-                    <label>Chinese</label>
-                  </div>
-                </div>
-
-                <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="irish" onChange={(event) => handleChange(event)}/>
-                    <label>Irish</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="mexican" onChange={(event) => handleChange(event)}/>
-                    <label>Mexican</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="jewish" onChange={(event) => handleChange(event)}/>
-                    <label>Jewish</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="italian" onChange={(event) => handleChange(event)}/>
-                    <label>Italian</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="middleEastern" onChange={(event) => handleChange(event)}/>
-                    <label>Middle Eastern</label>
-                  </div> */}
-                {/* </div> */}
               </div>
             </div>
           </li>
@@ -249,7 +136,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                 <div className="check-column">
                   {dietOptions.map((dietOption, index) => {
                       return (
-                        <div className="check-wrapper">
+                        <div className="check-wrapper" key={dietOption.id}>
                           <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
                             handleChange(event);
                             handleDietCheckBoxes(index)
@@ -258,55 +145,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                         </div>
                       )
                     })}
-                  {/* <div className="check-wrapper">
-                    <input type="checkbox" id="gluten_free" onChange={(event) => handleChange(event)}/>
-                    <label>Gluten Free</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="ovo_vegetarian" onChange={(event) => handleChange(event)}/>
-                    <label>Ovo-vegeterian</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="primal" onChange={(event) => handleChange(event)}/>
-                    <label>Primal</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="ketogenic" onChange={(event) => handleChange(event)}/>
-                    <label>Ketogenic</label>
-                  </div> */}
                 </div>
-                {/* <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="vegan" onChange={(event) => handleChange(event)}/>
-                    <label>Vegan</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="fodmap" onChange={(event) => handleChange(event)}/>
-                    <label>Low-FODMAP</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="vegetarian" onChange={(event) => handleChange(event)}/>
-                    <label>Vegeterian</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="pescetarian" onChange={(event) => handleChange(event)}/>
-                    <label>Pascetarian</label>
-                  </div>
-                </div>
-                <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="whole_30" onChange={(event) => handleChange(event)}/>
-                    <label>Whole30</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="lacto_vegetarian" onChange={(event) => handleChange(event)}/>
-                    <label>Lacto-vegeterian</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="paleo" onChange={(event) => handleChange(event)}/>
-                    <label>Paleo</label>
-                  </div> */}
-                {/* </div> */}
               </div>
             </div>
           </li>
@@ -320,7 +159,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                 <div className="check-column">
                   {intoleranceOptions.map((intoleranceOption, index) => {
                     return (
-                      <div className="check-wrapper">
+                      <div className="check-wrapper" key={intoleranceOption.id}>
                         <input type="checkbox" id={intoleranceOption.id} checked={intoleranceCheckedState[index]} onChange={(event) => {
                           handleChange(event);
                           handleIntoleranceCheckBoxes(index)
@@ -329,59 +168,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                       </div>
                     )
                   })}
-                  {/* <div className="check-wrapper">
-                    <input type="checkbox" id="dairy" onChange={(event) => handleChange(event)}/>
-                    <label>Dairy</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="peanut" onChange={(event) => handleChange(event)}/>
-                    <label>Peanut</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="soy" onChange={(event) => handleChange(event)}/>
-                    <label>Soy</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="egg" onChange={(event) => handleChange(event)}/>
-                    <label>Egg</label>
-                  </div> */}
                 </div>
-                {/* <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="seafood" onChange={(event) => handleChange(event)}/>
-                    <label>Seafood</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="sulfite" onChange={(event) => handleChange(event)}/>
-                    <label>Sulfite</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="gluten" onChange={(event) => handleChange(event)}/>
-                    <label>Gluten</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="sesame" onChange={(event) => handleChange(event)}/>
-                    <label>Sesame</label>
-                  </div>
-                </div>
-                <div className="check-column">
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="treeNut" onChange={(event) => handleChange(event)}/>
-                    <label>Treenut</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="grain" onChange={(event) => handleChange(event)}/>
-                    <label>Grain</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="shellfish" onChange={(event) => handleChange(event)}/>
-                    <label>Shellfish</label>
-                  </div>
-                  <div className="check-wrapper">
-                    <input type="checkbox" id="wheat" onChange={(event) => handleChange(event)}/>
-                    <label>Wheat</label> */}
-                  {/* </div> */}
-                {/* </div> */}
               </div>
             </div>
           </li>
