@@ -164,7 +164,18 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Are you interested in a type of cuisine?</p>
               <div className="checkbox-container" id="cuisineType">
                 <div className="check-column">
-                  <div className="check-wrapper">
+                  {cuisineTypesOptions.map((cuisineOption, index) => {
+                    return (
+                      <div className="check-wrapper">
+                        <input type="checkbox" id={cuisineOption.id} checked={cuisineCheckedState[index]} onChange={(event) => {
+                          handleChange(event);
+                          handleCuisineCheckBoxes(index)
+                          }}/>
+                        <label >{cuisineOption.name}</label>
+                      </div>
+                    )
+                  })}
+                  {/* <div className="check-wrapper">
                     <input type="checkbox" id="african" onChange={(event) => handleChange(event)}/>
                     <label htmlFor="african">African</label>
                   </div>
