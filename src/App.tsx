@@ -10,7 +10,6 @@ const App: React.FC = () => {
   return (
     <main className="App">
       <Nav />
-      {/* <Details /> */}
       <section className="main-container">
         <Routes>
           <Route path='/' element={<Home />} />
