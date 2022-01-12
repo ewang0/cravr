@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import "./ImageGrid.css"
-import { SampleDataProps } from './Types'
+import "./ImageGrid.css";
+import { SampleDataProps } from './Types';
 
 const ImageGrid: React.FC<SampleDataProps> = ({ recipes }) => {
 

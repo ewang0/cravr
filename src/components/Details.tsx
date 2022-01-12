@@ -74,7 +74,6 @@ const Details: React.FC = () => {
       </div>
     </section>
   )
-
 }
 
 export default Details;
