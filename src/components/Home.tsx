@@ -11,6 +11,7 @@ const Home: React.FC = () => {
   const [dietRestrictionEndPoint, setDietRestrictionEndPoint] = useState('');
   const [intoleranceEndPoint, setIntoleranceEndPoint] = useState('');
 
+
   // useEffect(() => {
   //   const fetchData = async() => {
   //     const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?${cuisineTypeEndPoint}${intoleranceEndPoint}${dietRestrictionEndPoint}${typeEndPoint}&apiKey=dde7a1678dfc4f46b6d031e5944114cf`)

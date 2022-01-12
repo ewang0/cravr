@@ -20,19 +20,25 @@ const Details: React.FC = () => {
 
   const dietTags = details?.diets.map(diet => {
     return (
-      <article>{diet}</article>
+      <article key={diet}>
+        {diet}
+      </article>
     )
   })
 
   const dishTags = details?.dishTypes.map(dish => {
     return (
-      <article>{dish}</article>
+      <article key={dish}>
+        {dish}
+      </article>
     )
   })
 
   const cuisineTags = details?.cuisines.map(cuisine => {
     return (
-      <article>{cuisine}</article>
+      <article key={cuisine}>
+        {cuisine}
+      </article>
     )
   })
   

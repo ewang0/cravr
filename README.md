@@ -27,17 +27,22 @@ An app that fulfills your cravings!  Have you ever felt the sudden urge for Ital
 
 ## Wins
 - Successfully integrated TypeScript to our project
-
+- Populating data from api endpoints
+- Making fetch url dynamic according to what filters are checked
 
 
 ## Challenges
 - Working with an API with a daily request quota proved difficult with constant testing and debugging
 - Learning TypeScript syntax and integrating with React
+- Unchecking all checkboxes after submit button is pressed
+
 
 ## Additions
 - Function that allows a user to favorite a food that can be viewed later
 - Adding a login function
-- Allow user to share a dish through social media
+- Implement slider function to further filter by taste as modeled below
+<img width="223" alt="slider" src="https://user-images.githubusercontent.com/70819338/149029729-d78dd0ab-36f8-4b08-84dd-abb51b34ad58.png">
+
 
 
 ## Contributors
