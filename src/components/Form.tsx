@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./Form.css"
 import Slider from '@mui/material/Slider';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
 import { SubmitSearchProps } from "./Types";
 
 
@@ -59,7 +63,28 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
             </div>
             <div className="question-content">
               <p>What kind of meal are you looking for?</p>
-              <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
+              <FormControl variant="standard" fullWidth>
+                <InputLabel id="meal-type-select-label">Meal Type</InputLabel>
+                <Select
+                  className="option-select"
+                  labelId="meal-type-select-label"
+                  id="meal-type-select"
+                  value={meal}
+                  label="Meal Type"
+                  autoWidth
+                  onChange={event => setMeal(event.target.value)}
+                >
+                  <MenuItem value={"breakfast"}>Breakfast</MenuItem>
+                  <MenuItem value={"main_course"}>Main Course</MenuItem>
+                  <MenuItem value={"side_dish"}>Side Dish</MenuItem>
+                  <MenuItem value={"dessert"}>Dessert</MenuItem>
+                  <MenuItem value={"appetizer"}>Appetizer</MenuItem>
+                  <MenuItem value={"fingerfood"}>Fingerfood</MenuItem>
+                  <MenuItem value={"snack"}>Snack</MenuItem>
+                </Select>
+              </FormControl>
+              
+              {/* <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
                 <option value="--Meal--">--Meal--</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="main_course">Main Course</option>
@@ -68,7 +93,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                 <option value="appetizer">Appetizer</option>
                 <option value="fingerfood">Fingerfood</option>
                 <option value="snack">snack</option>
-              </select>
+              </select> */}
             </div>
           </li>
           {/* <li>
