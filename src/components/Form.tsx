@@ -200,12 +200,12 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                     <label htmlFor="french">French</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="easternEuropean" onChange={(event) => handleChange(event)}/>
-                    <label>East European</label>
-                  </div>
+                    <input type="checkbox" id="eastern_european" onChange={(event) => handleChange(event)}/>
+                    <label>East European</label> */}
+                  {/* </div> */}
                 </div>
 
-                <div className="check-column">
+                {/* <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="southern" onChange={(event) => handleChange(event)}/>
                     <label htmlFor="southern">Southern</label>
@@ -287,8 +287,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="middleEastern" onChange={(event) => handleChange(event)}/>
                     <label>Middle Eastern</label>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </div>
             </div>
           </li>
@@ -300,7 +300,18 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Any dietary restrictions?</p>
               <div className="checkbox-container" id="dietRestrictions">
                 <div className="check-column">
-                  <div className="check-wrapper">
+                {dietOptions.map((dietOption, index) => {
+                    return (
+                      <div className="check-wrapper">
+                        <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
+                          handleChange(event);
+                          handleDietCheckBoxes(index)
+                        }}/>
+                        <label >{dietOption.name}</label>
+                      </div>
+                    )
+                  })}
+                  {/* <div className="check-wrapper">
                     <input type="checkbox" id="gluten_free" onChange={(event) => handleChange(event)}/>
                     <label>Gluten Free</label>
                   </div>
@@ -411,7 +422,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="wheat" onChange={(event) => handleChange(event)}/>
                     <label>Wheat</label>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
