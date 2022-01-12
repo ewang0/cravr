@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import "./Form.css"
-import Slider from '@mui/material/Slider';
+// import Slider from '@mui/material/Slider';
 import { SubmitSearchProps } from "./Types";
-
-
-// const checkBoxes = document.querySelectorAll('input:checked');
+import { cuisineTypesOptions, dietOptions, intoleranceOptions } from "../utils";
 
 const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
 
@@ -12,11 +10,19 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
   const [cuisineTypes, setCuisineTypes] = useState<string[]>([]);
   const [dietRestrictions, setDietRestrictions] = useState<string[]>([]);
   const [intolerances, setIntolerances] = useState<string[]>([]);
-  const [checkedState, setCheckedState] = useState<boolean[]>([]);
+  const [cuisineCheckedState, setCuisineCheckedState] = useState<boolean[]>(
+    new Array(cuisineTypesOptions.length).fill(false)
+  );
+  const [dietCheckedState, setDietCheckedState] = useState<boolean[]>(
+    new Array(dietOptions.length).fill(false)
+  );
+
+  const [intoleranceCheckedState, setIntoleranceCheckedState] = useState<boolean[]>(
+    new Array(intoleranceOptions.length).fill(false)
+  );
 
   const handleChange = (event: any) => {
     const sectionID = event.target.parentElement.parentElement.parentElement.id;
-    // event.target.toggleAttribute('checked');
     if (sectionID === "cuisineType") {
       cuisineTypes.includes(event.target.id) ? setCuisineTypes(cuisineTypes.filter(selection => selection !== event.target.id)) : setCuisineTypes([...cuisineTypes, event.target.id]);
     }
@@ -28,14 +34,26 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
     }
   }
 
+  const handleCuisineCheckBoxes = (position: number) => {
+    const updatedCuisineCheckedState = cuisineCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    setCuisineCheckedState(updatedCuisineCheckedState);
+  }
+  
+  const handleDietCheckBoxes = (position: number) => {
+    const updatedDietCheckedState = dietCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    setDietCheckedState(updatedDietCheckedState);
+  }
+
+  const handleIntoleranceCheckBoxes = (position: number) => {
+    const updatedIntoleranceCheckedState = intoleranceCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    setIntoleranceCheckedState(updatedIntoleranceCheckedState);
+  }
+
   const clearInputs = () => {
     setMeal('');
-    // const checkBoxes = document.querySelectorAll('input:checked');
-    // checkBoxes.forEach(checkbox => {
-    //   console.log(checkbox)
-      // checkbox.checked = false
-      // checkbox.toggleAttribute('checked');
-    // });
+    setCuisineCheckedState(new Array(cuisineTypesOptions.length).fill(false));
+    setDietCheckedState(new Array(dietOptions.length).fill(false));
+    setIntoleranceCheckedState(new Array(intoleranceOptions.length).fill(false));
     setCuisineTypes([]);
     setDietRestrictions([]);
     setIntolerances([]);
@@ -67,7 +85,7 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                 <option value="dessert">Dessert</option>
                 <option value="appetizer">Appetizer</option>
                 <option value="fingerfood">Fingerfood</option>
-                <option value="snack">snack</option>
+                <option value="snack">Snack</option>
               </select>
             </div>
           </li>
@@ -155,7 +173,18 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Are you interested in a type of cuisine?</p>
               <div className="checkbox-container" id="cuisineType">
                 <div className="check-column">
-                  <div className="check-wrapper">
+                  {cuisineTypesOptions.map((cuisineOption, index) => {
+                    return (
+                      <div className="check-wrapper">
+                        <input type="checkbox" id={cuisineOption.id} checked={cuisineCheckedState[index]} onChange={(event) => {
+                          handleChange(event);
+                          handleCuisineCheckBoxes(index)
+                          }}/>
+                        <label >{cuisineOption.name}</label>
+                      </div>
+                    )
+                  })}
+                  {/* <div className="check-wrapper">
                     <input type="checkbox" id="african" onChange={(event) => handleChange(event)}/>
                     <label htmlFor="african">African</label>
                   </div>
@@ -180,12 +209,12 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                     <label htmlFor="french">French</label>
                   </div>
                   <div className="check-wrapper">
-                    <input type="checkbox" id="easternEuropean" onChange={(event) => handleChange(event)}/>
-                    <label>East European</label>
-                  </div>
+                    <input type="checkbox" id="eastern_european" onChange={(event) => handleChange(event)}/>
+                    <label>East European</label> */}
+                  {/* </div> */}
                 </div>
 
-                <div className="check-column">
+                {/* <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="southern" onChange={(event) => handleChange(event)}/>
                     <label htmlFor="southern">Southern</label>
@@ -267,8 +296,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="middleEastern" onChange={(event) => handleChange(event)}/>
                     <label>Middle Eastern</label>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </div>
             </div>
           </li>
@@ -280,7 +309,18 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Any dietary restrictions?</p>
               <div className="checkbox-container" id="dietRestrictions">
                 <div className="check-column">
-                  <div className="check-wrapper">
+                  {dietOptions.map((dietOption, index) => {
+                      return (
+                        <div className="check-wrapper">
+                          <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
+                            handleChange(event);
+                            handleDietCheckBoxes(index)
+                          }}/>
+                          <label >{dietOption.name}</label>
+                        </div>
+                      )
+                    })}
+                  {/* <div className="check-wrapper">
                     <input type="checkbox" id="gluten_free" onChange={(event) => handleChange(event)}/>
                     <label>Gluten Free</label>
                   </div>
@@ -295,9 +335,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="ketogenic" onChange={(event) => handleChange(event)}/>
                     <label>Ketogenic</label>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="check-column">
+                {/* <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="vegan" onChange={(event) => handleChange(event)}/>
                     <label>Vegan</label>
@@ -327,8 +367,8 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="paleo" onChange={(event) => handleChange(event)}/>
                     <label>Paleo</label>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </div>
             </div>
           </li>
@@ -340,7 +380,18 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               <p>Show me results without:</p>
               <div className="checkbox-container" id="intolerances">
                 <div className="check-column">
-                  <div className="check-wrapper">
+                  {intoleranceOptions.map((intoleranceOption, index) => {
+                    return (
+                      <div className="check-wrapper">
+                        <input type="checkbox" id={intoleranceOption.id} checked={intoleranceCheckedState[index]} onChange={(event) => {
+                          handleChange(event);
+                          handleIntoleranceCheckBoxes(index)
+                          }}/>
+                        <label >{intoleranceOption.name}</label>
+                      </div>
+                    )
+                  })}
+                  {/* <div className="check-wrapper">
                     <input type="checkbox" id="dairy" onChange={(event) => handleChange(event)}/>
                     <label>Dairy</label>
                   </div>
@@ -355,9 +406,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   <div className="check-wrapper">
                     <input type="checkbox" id="egg" onChange={(event) => handleChange(event)}/>
                     <label>Egg</label>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="check-column">
+                {/* <div className="check-column">
                   <div className="check-wrapper">
                     <input type="checkbox" id="seafood" onChange={(event) => handleChange(event)}/>
                     <label>Seafood</label>
@@ -390,9 +441,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
                   </div>
                   <div className="check-wrapper">
                     <input type="checkbox" id="wheat" onChange={(event) => handleChange(event)}/>
-                    <label>Wheat</label>
-                  </div>
-                </div>
+                    <label>Wheat</label> */}
+                  {/* </div> */}
+                {/* </div> */}
               </div>
             </div>
           </li>
