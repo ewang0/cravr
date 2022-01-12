@@ -44,10 +44,16 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
     setDietCheckedState(updatedDietCheckedState);
   }
 
+  const handleIntoleranceCheckBoxes = (position: number) => {
+    const updatedIntoleranceCheckedState = intoleranceCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    setIntoleranceCheckedState(updatedIntoleranceCheckedState);
+  }
+
   const clearInputs = () => {
     setMeal('');
-    setCuisineCheckedState(new Array(cuisineTypesOptions.length).fill(false))
-    setDietCheckedState(new Array(dietOptions.length).fill(false))
+    setCuisineCheckedState(new Array(cuisineTypesOptions.length).fill(false));
+    setDietCheckedState(new Array(dietOptions.length).fill(false));
+    setIntoleranceCheckedState(new Array(intoleranceOptions.length).fill(false));
     setCuisineTypes([]);
     setDietRestrictions([]);
     setIntolerances([]);
