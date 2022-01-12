@@ -56,13 +56,11 @@ describe('Main page', () => {
       "summary": "The recipe Homemade Garlic and Basil French Fries is ready <b>in roughly 45 minutes</b> and is definitely a super <b>vegan</b> option for lovers of American food. One serving contains <b>596 calories</b>, <b>18g of protein</b>, and <b>15g of fat</b>. For <b>83 cents per serving</b>, you get a side dish that serves 2. Several people made this recipe, and 1669 would say it hit the spot. If you have garlic salt, flour, garlic powder, and a few other ingredients on hand, you can make it. All things considered, we decided this recipe <b>deserves a spoonacular score of 100%</b>. This score is outstanding. "
     })
     .get('.arrow-img').first().click()
-  
   })
 
   it('should check if details are displayed for that dish', () => {
-  cy.get('h2').contains("Homemade Garlic and Basil French Fries")
-  .get('p').contains("The recipe Homemade Garlic and Basil French Fries is ready in roughly 45 minutes and is definitely a super vegan option for lovers of American food.")
-   
+    cy.get('h2').contains("Homemade Garlic and Basil French Fries")
+    .get('p').contains("The recipe Homemade Garlic and Basil French Fries is ready in roughly 45 minutes and is definitely a super vegan option for lovers of American food.")
   })
 
   it('should return back to search results', () => {
