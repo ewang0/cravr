@@ -10,7 +10,7 @@ const Details: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async() => {
-      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=dd5ac6591f404c4d9a7ea8475237d2d7`)
+      const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=dde7a1678dfc4f46b6d031e5944114cf`)
       const resJson = await res.json()
       .catch(error => console.log(error));
       setDetails(resJson);
@@ -20,35 +20,34 @@ const Details: React.FC = () => {
 
   const dietTags = details?.diets.map(diet => {
     return (
-      <p>{diet}</p>
+      <article>{diet}</article>
     )
   })
 
   const dishTags = details?.dishTypes.map(dish => {
     return (
-      <p>{dish}</p>
+      <article>{dish}</article>
     )
   })
 
   const cuisineTags = details?.cuisines.map(cuisine => {
     return (
-      <p>{cuisine}</p>
+      <article>{cuisine}</article>
     )
   })
   
   const summaryArr = details?.summary.split('. ');
   summaryArr?.splice(summaryArr.length - 3, 3);
-  const summary = summaryArr?.join('. ')
+  const summary = summaryArr?.join('. ');
 
   return (
-    <section className="recipe-details">
-      
+    <section className="details-section">
       <div className="recipe-details-content">
-        <Link className="back-button" to="/"><img className="left-arrow-icon" src="arrow.svg"></img>Back</Link>
+        <Link className="back-button" to="/"><img className="left-arrow-icon" src="../arrow.svg"></img>Back</Link>
         <div className="content-left">
           <div className="image-description">
             <div className="placeholder-img">
-              <img src={details?.image} alt='Food img'></img>
+              <img src={details?.image} alt='Food img' className="food-image"></img>
             </div>
             <h2>{details?.title}</h2>
             <div className="tags">
@@ -64,7 +63,7 @@ const Details: React.FC = () => {
             <h2>Description</h2>
             <p dangerouslySetInnerHTML={{__html: `${summary}.`!}}></p>
           </div>
-          <a href={details?.spoonacularSourceUrl} target="_blank"><button className="view-recipe-button">View Recipe</button></a>
+          <a href={details?.spoonacularSourceUrl} target="_blank" rel="noreferrer"><button className="view-recipe-button">View Recipe</button></a>
         </div>
       </div>
     </section>

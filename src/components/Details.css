@@ -1,8 +1,7 @@
-.recipe-details {
+.details-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
+    width: 100%;
 }
 
 .recipe-details-content {
@@ -16,13 +15,14 @@
     font-family: 'Source Sans Pro', sans-serif;
     position: absolute;
     text-decoration: none;
+    color: black;
     margin-left: -110px;
     margin-top: 20px;
     left:0;
     top: 0;
 }
 
-.placeholder-img {
+.food-image {
     height: 360px;
     width: 480px;
     background-color: lightgray;
@@ -31,6 +31,7 @@
 
 .image-description h2 {
     font-family: 'Source Serif Pro', serif;
+    margin: 15px 0px 15px 10px;
 }
 
 .line {
@@ -41,14 +42,14 @@
 
 .tags {
     display: flex;
-    margin-left: -10px;
+    flex-wrap: wrap;
 }
 
 .tags article {
     font-family: 'Source Sans Pro', sans-serif;
     padding: 10px 20px 10px 20px;
-    background-color: lightgray;
-    margin: 10px;
+    background-color: #EDEDED;
+    margin: 5px;
     border-radius: 50px;
 }
 
