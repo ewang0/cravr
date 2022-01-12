@@ -31,6 +31,16 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
     }
   }
 
+  const handleCuisineCheckBoxes = (position: number) => {
+    const updatedCuisineCheckedState = cuisineCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    setCuisineCheckedState(updatedCuisineCheckedState);
+  }
+  
+  const handleDietCheckBoxes = (position: number) => {
+    const updatedDietCheckedState = dietCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    setDietCheckedState(updatedDietCheckedState);
+  }
+
   const clearInputs = () => {
     setMeal('');
     // const checkBoxes = document.querySelectorAll('input:checked');
