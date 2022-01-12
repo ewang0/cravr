@@ -51,6 +51,7 @@ export interface DetailsProps {
   }
 }
 
-export interface SubmitSearchProps {
+export interface FormProps {
   submitSearch: (event: any, type?: string, cuisineTypes?: string[], dietRestrictions?: string[], intolerances?: string[]) => void
+  randomSearch: (event: any) => void
 }

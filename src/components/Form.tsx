@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "./Form.css"
-// import Slider from '@mui/material/Slider';
-import { SubmitSearchProps } from "./Types";
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import MenuItem from '@mui/material/MenuItem';
+import { FormProps } from "./Types";
 import { cuisineTypesOptions, dietOptions, intoleranceOptions } from "../utils";
 
-const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
+
+const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
 
   const [meal, setMeal] = useState('');
   const [cuisineTypes, setCuisineTypes] = useState<string[]>([]);
@@ -77,94 +81,28 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
             </div>
             <div className="question-content">
               <p>What kind of meal are you looking for?</p>
-              <select className="option-select" value={meal} onChange={event => setMeal(event.target.value)}>
-                <option value="--Meal--">--Meal--</option>
-                <option value="breakfast">Breakfast</option>
-                <option value="main_course">Main Course</option>
-                <option value="side_dish">Side Dish</option>
-                <option value="dessert">Dessert</option>
-                <option value="appetizer">Appetizer</option>
-                <option value="fingerfood">Fingerfood</option>
-                <option value="snack">Snack</option>
-              </select>
+              <FormControl variant="standard" fullWidth>
+                <InputLabel id="meal-type-select-label">Meal Type</InputLabel>
+                <Select
+                  className="option-select"
+                  labelId="meal-type-select-label"
+                  id="meal-type-select"
+                  value={meal}
+                  label="Meal Type"
+                  autoWidth
+                  onChange={event => setMeal(event.target.value)}
+                >
+                  <MenuItem value={"breakfast"}>Breakfast</MenuItem>
+                  <MenuItem value={"main_course"}>Main Course</MenuItem>
+                  <MenuItem value={"side_dish"}>Side Dish</MenuItem>
+                  <MenuItem value={"dessert"}>Dessert</MenuItem>
+                  <MenuItem value={"appetizer"}>Appetizer</MenuItem>
+                  <MenuItem value={"fingerfood"}>Fingerfood</MenuItem>
+                  <MenuItem value={"snack"}>Snack</MenuItem>
+                </Select>
+              </FormControl>
             </div>
           </li>
-          {/* <li>
-            <div className="num-circle">
-              <p>2</p>
-            </div>
-            <div className="question-content">
-              <p>What kind of flavors are you in the mood for?</p>
-              <div className="slider-container">
-                <div className="slider-wrapper">
-                  <Slider
-                    aria-label="Sweet"
-                    defaultValue={30}
-                    color="secondary"
-                    valueLabelDisplay="auto"
-                    sx ={{
-                      width: 250,
-                      height: 6,
-                    }}
-                  />
-                  <p>Sweet</p>
-                </div>
-                <div className="slider-wrapper savory">
-                  <Slider
-                        aria-label="Savory"
-                        defaultValue={30}
-                        valueLabelDisplay="auto"
-                        onChange={(event) => handleSlider(event)}
-                        sx ={{
-                          width: 250,
-                          height: 6,
-                          color: 'orange'
-                        }}
-                      />
-                  <p>Savory</p>
-                </div>
-                <div className="slider-wrapper sour">
-                  <Slider
-                    aria-label="Sour"
-                    defaultValue={30}
-                    valueLabelDisplay="auto"
-                    sx ={{
-                      width: 250,
-                      height: 6,
-                      color: 'LimeGreen'
-                    }}
-                  />
-                  <p>Sour</p>
-                </div>
-                <div className="slider-wrapper bitter">
-                  <Slider
-                      aria-label="Sour"
-                      defaultValue={30}
-                      valueLabelDisplay="auto"
-                      sx ={{
-                        width: 250,
-                        height: 6,
-                      }}
-                    />
-                  <p>Bitter</p>
-                </div>
-                <div className="slider-wrapper spicy">
-                  <Slider
-                      aria-label="Sour"
-                      defaultValue={30}
-                      valueLabelDisplay="auto"
-                      sx ={{
-                        width: 250,
-                        height: 6,
-                        color: 'OrangeRed'
-                      }}
-                    />
-                  <p>Spicy</p>
-                </div>
-              </div>
-
-            </div>
-          </li> */}
           <li>
             <div className="num-circle">
               <p>2</p>
@@ -454,7 +392,9 @@ const Form: React.FC<SubmitSearchProps> = ({ submitSearch }) => {
               submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances);
               clearInputs();
               }}>Submit</button>
-            <button>Random</button>
+            <button onClick={event => {
+              randomSearch(event)
+            }}>Random</button>
           </div>
         </div>
       </form>

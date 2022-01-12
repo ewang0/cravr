@@ -8,3 +8,17 @@
     flex-wrap: wrap;
     margin-right: 20px;
 }
+
+.fruit {
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 703px) {
+    .image-grid-section {
+      width: 100%;
+    }
+    
+    .card-container {
+        margin-right: 0px;
+    }
+  }

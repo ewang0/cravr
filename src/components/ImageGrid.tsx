@@ -19,7 +19,7 @@ const ImageGrid: React.FC<SampleDataProps> = ({ recipes }) => {
   return(
     <section className="image-grid-section">
       <aside className="questionnaire-info">
-        <img className="bulb-icon" src="fruit.jpg" alt="lightbulb-icon"></img>
+        <img className="bulb-icon fruit" src="fruit.jpg" alt="lightbulb-icon"></img>
         <div className="questionnaire-info-text">
           <h2>Recommendations</h2>
           <p>Your food recommendations will show up here. We’ve generated some random foods to get you started.</p>
