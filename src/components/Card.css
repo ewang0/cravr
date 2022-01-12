@@ -6,7 +6,7 @@
 .card p {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
-    max-width: 250px;
+    max-width: 20vw;
     margin-right: 0px;
 }
 .food-img {
@@ -56,13 +56,16 @@
     .food-img {
         width: 45vw;
     }
+    .card p {
+        max-width: 40vw;
+    }
 }
 
 @media screen and (max-width: 703px) {
     .food-img {
-        width: 42vw;
+        width: 41vw;
     }
     .card p {
-        max-width: 150px;
+        max-width: 35vw;
     }
   }
