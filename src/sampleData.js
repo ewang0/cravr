@@ -6,7 +6,7 @@ const sampleData = [
   },
   {
     id: 654935,
-    title: "Pasta with Peas and Italian Sausage",
+    title: "Pasta with Peas and Italian Sausage Pasta with Peas and Italian Sausage",
     image: "https://spoonacular.com/recipeImages/654935-480x360.jpg"
   },
   {
