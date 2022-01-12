@@ -11,8 +11,8 @@ const Nav: React.FC = () => {
             </div>
             <h1>Cravr</h1>
             <div className="nav-items right">
-                <NavLink to="/">Favorites</NavLink>
-                <NavLink to="/">Something</NavLink>
+                <a href="https://github.com/ewang0/stretch-tech" target="_blank" rel="noreferrer">Repo</a>
+                <a href="https://spoonacular.com/food-api" target="_blank" rel="noreferrer">API</a>
             </div>
         </nav>
     )
