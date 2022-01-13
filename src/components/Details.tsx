@@ -52,9 +52,7 @@ const Details: React.FC = () => {
         <Link className="back-button" to="/"><img className="left-arrow-icon" src="../arrow.svg"></img>Back</Link>
         <div className="content-left">
           <div className="image-description">
-            <div className="placeholder-img">
-              <img src={details?.image} alt='Food img' className="food-image"></img>
-            </div>
+            <img src={details?.image} alt='Food img' className="food-image"></img>
             <h2>{details?.title}</h2>
             <div className="tags">
               {dietTags}
@@ -65,7 +63,7 @@ const Details: React.FC = () => {
         </div>
         <div className="line"></div>
         <div className="content-right">
-          <div>
+          <div className="detail-description-container">
             <h2>Description</h2>
             <p dangerouslySetInnerHTML={{__html: `${summary}.`!}}></p>
           </div>
