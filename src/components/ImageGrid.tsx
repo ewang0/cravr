@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import "./ImageGrid.css"
 import { SampleDataProps } from './Types'
+import ErrorModal from "./ErrorModal";
 
 const ImageGrid: React.FC<SampleDataProps> = ({ recipes }) => {
 
@@ -27,6 +28,7 @@ const ImageGrid: React.FC<SampleDataProps> = ({ recipes }) => {
       </aside>
     <div className="card-container">
       {eachRecipe}
+    {/* <ErrorModal /> */}
     </div>
     </section>
   )
