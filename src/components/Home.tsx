@@ -3,6 +3,7 @@ import Form from "./Form";
 import ImageGrid from "./ImageGrid";
 import sampleData from '../sampleData';
 import ErrorModal from './ErrorModal';
+import { ErrorModalProps } from './Types';
 
 const Home: React.FC = () => {
 
@@ -54,8 +55,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Form submitSearch={submitSearch} randomSearch={randomSearch}/>
-
-      {recipes.length ? <ImageGrid recipes={recipes}/> : <ErrorModal /> }
+      {recipes.length ? <ImageGrid recipes={recipes}/> : <ErrorModal errorMsg={errorState}/> }
     </>
   )
 }

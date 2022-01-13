@@ -1,5 +1,4 @@
 .card {
-    /* width: 323px; */
     margin: 12.5px;
 }
 
@@ -10,10 +9,7 @@
     margin-right: 0px;
 }
 .food-img {
-    /* height: 242.25px;
-    width: 323px; */
     width: 22.5vw;
-
     background-color: gray;
     object-fit: cover;
     border-radius: 30px;
@@ -68,4 +64,4 @@
     .card p {
         max-width: 35vw;
     }
-  }
+}
