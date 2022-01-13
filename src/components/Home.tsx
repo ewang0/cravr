@@ -13,13 +13,13 @@ const Home: React.FC = () => {
   const [intoleranceEndPoint, setIntoleranceEndPoint] = useState('');
   const [errorState, setErrorState] = useState('');
 
-
   useEffect(() => {
     const fetchData = async() => {
       const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?${cuisineTypeEndPoint}${intoleranceEndPoint}${dietRestrictionEndPoint}${typeEndPoint}&apiKey=${process.env.REACT_APP_API_KEY}`)
       const resJson = await res.json()
       .catch(error => setErrorState(error));
       console.log(resJson)
+
       setRecipes(resJson.results)
     }
     fetchData();
@@ -54,6 +54,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Form submitSearch={submitSearch} randomSearch={randomSearch}/>
+
       {recipes.length ? <ImageGrid recipes={recipes}/> : <ErrorModal /> }
     </>
   )

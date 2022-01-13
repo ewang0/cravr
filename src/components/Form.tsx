@@ -113,7 +113,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                   <MenuItem value={"breakfast"}>Breakfast</MenuItem>
                   <MenuItem value={"main_course"}>Main Course</MenuItem>
                   <MenuItem value={"side_dish"}>Side Dish</MenuItem>
-                  <MenuItem value={"dessert"}>Dessert</MenuItem>
+                  <MenuItem data-cy="dessert" value={"dessert"}>Dessert</MenuItem>
                   <MenuItem value={"appetizer"}>Appetizer</MenuItem>
                   <MenuItem value={"fingerfood"}>Fingerfood</MenuItem>
                   <MenuItem value={"snack"}>Snack</MenuItem>
@@ -157,7 +157,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
         </ul>
         <div className="form-button-container">
           <div className="form-button-wrapper">
-            <button onClick={event => {
+            <button className="submit-button"onClick={event => {
               submitSearch(event, meal, cuisineTypes, dietRestrictions, intolerances);
               clearInputs();
               }}>Submit</button>
