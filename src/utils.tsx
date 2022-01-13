@@ -5,7 +5,7 @@ export const cuisineTypesOptions = [
   {id: 'cajun', name: 'Cajun'},
   {id: 'caribbean', name: 'Caribbean'},
   {id: 'chinese', name: 'Chinese'},
-  {id: 'eastern_european', name: 'Eastern European'},
+  {id: 'eastern_european', name: 'East European'},
   {id: 'european', name: 'European'},
   {id: 'french', name: 'French'},
   {id: 'german', name: 'German'},
