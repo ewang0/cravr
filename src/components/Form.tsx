@@ -63,6 +63,24 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
     setIntolerances([]);
   }
 
+  const mapColumn = (eventHandler: (position: number) => void, state:any, stateArray:any, columnStyle:string) => {
+    return(
+      <div className={`check-column ${columnStyle}`}>
+        {stateArray.map((option:any, index:number) => {
+          return (
+            <div className="check-wrapper">
+              <input type="checkbox" id={option.id} checked={state[index]} onChange={(event) => {
+                handleChange(event);
+                eventHandler(index)
+                }}/>
+              <label>{option.name}</label>
+            </div>
+          )
+        })}
+      </div>
+    )
+}
+
   return (
     <section className="form-section">
       <aside className="questionnaire-info">
@@ -110,19 +128,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
             <div className="question-content">
               <p>Are you interested in a type of cuisine?</p>
               <div className="checkbox-container" id="cuisineType">
-                <div className="check-column">
-                  {cuisineTypesOptions.map((cuisineOption, index) => {
-                    return (
-                      <div className="check-wrapper" key={cuisineOption.id}>
-                        <input type="checkbox" id={cuisineOption.id} checked={cuisineCheckedState[index]} onChange={(event) => {
-                          handleChange(event);
-                          handleCuisineCheckBoxes(index)
-                          }}/>
-                        <label >{cuisineOption.name}</label>
-                      </div>
-                    )
-                  })}
-                </div>
+                {mapColumn(handleCuisineCheckBoxes, cuisineCheckedState, cuisineTypesOptions, 'cuisine')}
               </div>
             </div>
           </li>
@@ -133,19 +139,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
             <div className="question-content">
               <p>Any dietary restrictions?</p>
               <div className="checkbox-container" id="dietRestrictions">
-                <div className="check-column">
-                  {dietOptions.map((dietOption, index) => {
-                      return (
-                        <div className="check-wrapper" key={dietOption.id}>
-                          <input type="checkbox" id={dietOption.id} checked={dietCheckedState[index]} onChange={(event) => {
-                            handleChange(event);
-                            handleDietCheckBoxes(index)
-                          }}/>
-                          <label >{dietOption.name}</label>
-                        </div>
-                      )
-                    })}
-                </div>
+                {mapColumn(handleDietCheckBoxes, dietCheckedState, dietOptions, 'diet')}
               </div>
             </div>
           </li>
@@ -156,19 +150,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
             <div className="question-content">
               <p>Show me results without:</p>
               <div className="checkbox-container" id="intolerances">
-                <div className="check-column">
-                  {intoleranceOptions.map((intoleranceOption, index) => {
-                    return (
-                      <div className="check-wrapper" key={intoleranceOption.id}>
-                        <input type="checkbox" id={intoleranceOption.id} checked={intoleranceCheckedState[index]} onChange={(event) => {
-                          handleChange(event);
-                          handleIntoleranceCheckBoxes(index)
-                          }}/>
-                        <label >{intoleranceOption.name}</label>
-                      </div>
-                    )
-                  })}
-                </div>
+                {mapColumn(handleIntoleranceCheckBoxes, intoleranceCheckedState, intoleranceOptions, 'intolerance')}
               </div>
             </div>
           </li>

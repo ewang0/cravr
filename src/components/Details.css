@@ -16,10 +16,14 @@
     position: absolute;
     text-decoration: none;
     color: black;
-    margin-left: -110px;
+    margin-left: -140px;
     margin-top: 20px;
     left:0;
     top: 0;
+}
+
+.back-button:hover {
+    text-decoration: underline;
 }
 
 .food-image {
@@ -83,4 +87,15 @@ button {
 button:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+
+@media screen and (max-width: 795px) {
+    .recipe-details-content {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail-description-container {
+        max-width: 500px;
+    }
 }
