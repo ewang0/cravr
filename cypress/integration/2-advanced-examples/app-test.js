@@ -73,7 +73,7 @@ describe('Main page', () => {
     .get("[data-cy='dessert']").click()
     .get('#greek').check()
     .get('.submit-button').click()
-    .get('.error-msg').contains("No results that match your search.")
+    .get('.error-modal-container').contains("Looks like nothing came back for your search.")
   })
 })
 
