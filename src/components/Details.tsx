@@ -49,7 +49,7 @@ const Details: React.FC = () => {
   return (
     <section className="details-section">
       <div className="recipe-details-content">
-        <Link className="back-button" to="/"><img className="left-arrow-icon" src="../arrow.svg"></img>Back</Link>
+        <Link className="back-button" to="/"><img className="left-arrow-icon" src="../arrow.svg" alt="arrow"></img>Back</Link>
         <div className="content-left">
           <div className="image-description">
             <img src={details?.image} alt='Food img' className="food-image"></img>

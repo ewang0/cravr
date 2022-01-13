@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Form from "./Form";
 import ImageGrid from "./ImageGrid";
-import sampleData from '../sampleData';
 import ErrorModal from './ErrorModal';
-import { ErrorModalProps } from './Types';
 
 const Home: React.FC = () => {
 
