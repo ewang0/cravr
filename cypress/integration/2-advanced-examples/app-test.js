@@ -63,9 +63,17 @@ describe('Main page', () => {
     .get('p').contains("The recipe Homemade Garlic and Basil French Fries is ready in roughly 45 minutes and is definitely a super vegan option for lovers of American food.")
   })
 
-  it('should return back to search results', () => {
-    cy.get('.left-arrow-icon').click()
+  it('should return back to the page', () => {
+    cy.get('nav').contains("Home").click()
   })
 
+  it('should return a message if no search results were found', () => {
+    cy.intercept(`https://api.spoonacular.com/recipes/complexSearch?cuisine=greek&intolerances=&diet=&type=dessert&apiKey=${process.env.REACT_APP_API_KEY}`)
+    .get('#meal-type-select').click()
+    .get("[data-cy='dessert']").click()
+    .get('#greek').check()
+    .get('.submit-button').click()
+    .get('.error-msg').contains("No results that match your search.")
+  })
 })
 

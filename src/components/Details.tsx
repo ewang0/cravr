@@ -16,7 +16,6 @@ const Details: React.FC = () => {
       const resJson = await res.json()
       .catch(error => console.log(error));
       setDetails(resJson);
-      console.log(resJson)
     }
     fetchData();
   }, [id]);

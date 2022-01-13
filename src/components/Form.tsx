@@ -95,7 +95,7 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
                   <MenuItem value={"breakfast"}>Breakfast</MenuItem>
                   <MenuItem value={"main_course"}>Main Course</MenuItem>
                   <MenuItem value={"side_dish"}>Side Dish</MenuItem>
-                  <MenuItem value={"dessert"}>Dessert</MenuItem>
+                  <MenuItem data-cy="dessert" value={"dessert"}>Dessert</MenuItem>
                   <MenuItem value={"appetizer"}>Appetizer</MenuItem>
                   <MenuItem value={"fingerfood"}>Fingerfood</MenuItem>
                   <MenuItem value={"snack"}>Snack</MenuItem>
