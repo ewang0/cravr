@@ -55,3 +55,7 @@ export interface FormProps {
   submitSearch: (event: any, type?: string, cuisineTypes?: string[], dietRestrictions?: string[], intolerances?: string[]) => void
   randomSearch: (event: any) => void
 }
+
+export interface ErrorModalProps {
+  errorMsg: string
+}
