@@ -29,15 +29,15 @@ export const cuisineTypesOptions = [
 
 export const dietOptions = [
   {id: 'gluten_free', name: 'Gluten Free'},
-  {id: 'ovo_vegetarian', name: 'Ovo-vegeterian'},
+  {id: 'ovo_vegetarian', name: 'Ovo-Vegetarian'},
   {id: 'primal', name: 'Primal'},
   {id: 'ketogenic', name: 'Ketogenic'},
   {id: 'vegan', name: 'Vegan'},
   {id: 'fodmap', name: 'Low-FODMAP'},
-  {id: 'vegetarian', name: 'Vegeterian'},
-  {id: 'pescetarian', name: 'Pascetarian'},
+  {id: 'vegetarian', name: 'Vegetarian'},
+  {id: 'pescetarian', name: 'Pescetarian'},
   {id: 'whole_30', name: 'Whole30'},
-  {id: 'lacto_vegetarian', name: 'Lacto-vegeterian'},
+  {id: 'lacto_vegetarian', name: 'Lacto-Vegetarian'},
   {id: 'paleo', name: 'Paleo'}
 ];
 
@@ -50,7 +50,7 @@ export const intoleranceOptions = [
   {id: 'sulfite', name: 'Sulfite'},
   {id: 'gluten', name: 'Gluten'},
   {id: 'sesame', name: 'Sesame'},
-  {id: 'treeNut', name: 'Treenut'},
+  {id: 'treeNut', name: 'Tree Nut'},
   {id: 'grain', name: 'Grain'},
   {id: 'shellfish', name: 'Shellfish'},
   {id: 'wheat', name: 'Wheat'}
