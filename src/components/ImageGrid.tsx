@@ -28,7 +28,6 @@ const ImageGrid: React.FC<SampleDataProps> = ({ recipes }) => {
       </aside>
     <div className="card-container">
       {eachRecipe}
-    {/* <ErrorModal /> */}
     </div>
     </section>
   )

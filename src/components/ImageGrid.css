@@ -16,10 +16,10 @@
 
 @media screen and (max-width: 703px) {
     .image-grid-section {
-      width: 100%;
+        width: 100%;
     }
     
     .card-container {
         margin-right: 0px;
     }
-  }
+}
