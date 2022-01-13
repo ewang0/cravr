@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Form.css"
+import "./Form.css";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -39,17 +39,17 @@ const Form: React.FC<FormProps> = ({ submitSearch, randomSearch}) => {
   }
 
   const handleCuisineCheckBoxes = (position: number) => {
-    const updatedCuisineCheckedState = cuisineCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    const updatedCuisineCheckedState = cuisineCheckedState.map((item: boolean, index: number) => index === position ? !item : item);
     setCuisineCheckedState(updatedCuisineCheckedState);
   }
   
   const handleDietCheckBoxes = (position: number) => {
-    const updatedDietCheckedState = dietCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    const updatedDietCheckedState = dietCheckedState.map((item: boolean, index: number) => index === position ? !item : item);
     setDietCheckedState(updatedDietCheckedState);
   }
 
   const handleIntoleranceCheckBoxes = (position: number) => {
-    const updatedIntoleranceCheckedState = intoleranceCheckedState.map((item: boolean, index: number) => index === position ? !item : item)
+    const updatedIntoleranceCheckedState = intoleranceCheckedState.map((item: boolean, index: number) => index === position ? !item : item);
     setIntoleranceCheckedState(updatedIntoleranceCheckedState);
   }
 
