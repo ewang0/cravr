@@ -9,8 +9,6 @@
   - [Wins](#Wins)
   - [Challenges](#Challenges)
   - [Additions](#Additions)
-  - [Contributors](#Contributors)
-  - [Specs](#Specs)
 
 ## Abstract
 An app that fulfills your cravings!  Have you ever felt the sudden urge for Italian food but not sure what to make?  Cravr is an app that allows you to search for recipes according to your likes.  You have the option of selecting a food type as well as filtering cuisine type, dietary needs, and intolerances.  See a dish that interests you?  Click on it and the dish summary is displayed along with a link to the ingredients and instructions on how to make it.
@@ -34,7 +32,7 @@ Responsive Design:
 
 
 ## Wins
-- Successfully integrated TypeScript to our project
+- Successfully integrated TypeScript
 - Populating data from api endpoints
 - Making fetch url dynamic according to what filters are checked
 
@@ -51,12 +49,3 @@ Responsive Design:
 - Implement slider function to further filter by taste as modeled below
 <img width="223" alt="slider" src="https://user-images.githubusercontent.com/70819338/149029729-d78dd0ab-36f8-4b08-84dd-abb51b34ad58.png">
 
-
-
-## Contributors
-[Ricardo Tovar](https://github.com/JRicardoT)  
-[Eric Wang](https://github.com/ewang0)  
-[Tony Hsu](https://github.com/tonydhsu)  
-
-## Specs
-[Stretch Tech Project](https://frontend.turing.edu/projects/module-3/stretch.html)
